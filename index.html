@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>ビルクリーニング</title>
+
+<style>
+
+#questionText{
+    font-size:30px;
+    font-weight:bold;
+    line-height:2;
+}
+
+#toolImage{
+    display:block;
+    margin:20px auto;
+
+    width:100%;
+    max-width:250px;
+    height:auto;
+
+}
+
+#quiz{
+    width:600px;
+    max-width:90%;
+    margin:30px auto;
+    text-align:center;
+}
+
+#questionText{
+    font-size:30px;
+    font-weight:bold;
+    color:#003366;
+    margin:20px;
+}
+
+
+
+.animated-wave-section{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+     height:250px;
+    overflow:hidden;
+    z-index:1;
+    pointer-events:none;
+}
+
+
+rt{
+    font-size:0.6em;
+    color:rgb(255, 255, 255);
+    font-weight:bold;
+}
+
+
+
+
+.animated-wave{  
+    position:absolute;
+    bottom:-50px;
+    left:0;
+
+    width:200%;
+    height:180%;
+
+    display:block;
+
+    will-change: transform;
+    transform: translate3d(0,0,0);
+
+    animation:wave-animation 10s linear infinite;
+}
+
+
+
+
+
+/* 波線の色 */
+.animated-wave path {
+  fill: #00bcd4;
+}
+
+
+
+
+@keyframes wave-animation{
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+
+
+
+.animated-wave-section .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 100px;
+  color: #333;
+}
+      button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+
+button:hover::before {
+  left: 140%;
+}
+
+
+button:hover{
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+  #orcaImage {
+  animation: swim 8s ease-in-out infinite;
+}
+
+@keyframes swim {
+  0% {
+    transform: translate(0px, 0px) rotate(-3deg);
+  }
+
+  25% {
+    transform: translate(15px, -8px) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(0px, -15px) rotate(3deg);
+  }
+
+  75% {
+    transform: translate(-15px, -8px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(0px, 0px) rotate(-3deg);
+  }
+}
+/* タイトル */
+h1{ border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#87ebff,#69dce9);
+    color:white;
+    font-size:2.5rem;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.3);
+    margin-top:20px;
+}
+
+/* 問題文 */
+h2 {
+    animation: none;
+  display: inline-block;
+  max-width: 90%;
+  padding: 15px 25px;
+  margin: 15px 0;
+
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: bold;
+
+  background: rgba(0, 140, 255, 0.25);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+
+
+  box-shadow:
+    0 0 15px rgba(0,195,255,0.5),
+    inset 0 0 15px rgba(255,255,255,0.1);
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.8),
+    0 0 10px #00c6ff;
+}
+
+/* 問題文がふわふわ */
+h2 {
+  animation: floatQuestion 3s ease-in-out infinite;
+}
+
+@keyframes floatQuestion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+img {
+  width: px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+
+
+
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+       z-index: 9999;
+  }
+
+
+body {   
+ text-align:center;
+    font-family:sans-serif;
+
+    background-image:url("images/clean.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    margin:0;
+
+    min-height:100vh;
+
+    overflow-x:hidden;   /* 横だけ隠す */
+    overflow-y:auto;     /* 縦スクロールは許可 */
+}
+
+
+.bubble-background{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:5;
+}
+
+
+/* 泡の見た目 */
+
+.bubble{
+  position:absolute;
+  bottom:-50px;
+
+  border:2px solid rgba(255,255,255,.7);
+  background:rgba(255,255,255,.15);
+
+  border-radius:50%;
+z-index:5;
+  animation:bubble 12s linear infinite;
+}
+
+
+/* 泡の一番明るい部分を疑似要素で表現 */
+.bubble::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.25) translate(-70%, -70%);
+  background: radial-gradient(rgba(255,255,255, 0.5), transparent);
+  border-radius: 50%;
+}
+
+/* 泡が上に浮かび上がっていくアニメーション */
+@keyframes bubble {
+  0% {
+   transform: translateY(0);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+
+
+
+.random-btn:hover{
+    background-color: darkorange;
+}
+
+/* スコア */
+#scoreBoard{
+  
+    position:fixed;
+    margin:10px auto;
+    width:fit-content;
+
+    top:15px;
+    right:20px;
+    background:rgba(255,255,255,0.9);
+    border-radius:15px;
+    padding:15px 25px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* クイズエリア */
+#quiz{
+    width:600px;
+    max-width:90%;
+    margin:30px auto;
+    background:rgba(41, 230, 255, 0.95);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+
+
+.random-btn{
+    background: linear-gradient(45deg,#c5bfff,#a79fff) !important;
+    color:white !important;
+}
+
+/* 問題数 */
+#count{
+    color:rgb(0, 43, 116);
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+/* ボタン */
+
+  .container {
+ padding-bottom:260px;
+    width:95%;
+    max-width:1000px;
+    min-height:auto;
+    margin:20px auto;
+    padding:15px;
+    box-sizing:border-box;
+  position: relative;
+      z-index:100;
+    background: #ffffff99;
+    border-radius: 15px;
+  }
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+button:disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+}
+
+/* 正誤表示 */
+#result{
+    font-size:28px;
+    font-weight:bold;
+    margin:25px;
+     color:red;
+}
+
+/* 次へボタン */
+#next,
+#nextSet{
+    width:260px;
+    background:linear-gradient(45deg,#00c853,#64dd17);
+}
+button{
+        z-index:1000;
+      width:90%;
+      
+   max-width:320px;
+    min-height:60px;
+    margin:10px;
+    padding:15px;
+    font-size:20px;
+    font-weight:bold;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#126798,#729aff);
+    color:whitesmoke;
+    cursor:pointer;
+    transition:all .3s ease;
+
+
+
+text-shadow:
+    -1px -1px 0 rgb(61, 41, 153),
+     1px -1px 0 rgb(61, 41, 153),
+    -1px  1px 0 rgb(61, 41, 153),
+     1px  1px 0 rgb(61, 41, 153);
+
+}
+@media (max-width:768px){
+
+    body{
+      
+        display:block;
+        min-height:auto;
+        overflow-y:auto;
+
+    }
+
+    .container{
+        width:95%;
+        margin:10px auto;
+        padding:10px;
+        min-height:auto;
+        
+    }
+
+    h1{
+        font-size:1.5rem;
+    }
+
+    h2{
+        font-size:20px;
+        padding:10px;
+    }
+
+    #questionText{
+        font-size:22px;
+        line-height:1.8;
+    }
+
+    button{
+        width:95%;
+        max-width:none;
+        min-height:60px;
+        font-size:18px;
+        margin:6px auto;
+        display:block;
+    }
+
+    #toolImage{
+        width:50%;
+        max-width:220px;
+        min-height:60px;
+        height:auto;
+    }
+
+    #scoreBoard{
+           position:fixed;
+        margin:10px auto;
+    }
+
+    rt{
+        font-size:0.5em;
+    }
+}
+</style>
+
+</head>
+<body>
+
+
+  
+<section class="animated-wave-section">
+  <svg class="animated-wave" viewBox="0 0 1440 320" preserveAspectRatio="none">
+
+    <path fill="#00bcd4"
+    d="M0,160L48,160C96,160,192,160,288,170.7C384,181,480,203,576,197.3C672,192,768,160,864,165.3C960,171,1056,213,1152,213.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L0,320Z">
+    </path>
+
+    <path fill="#00bcd4"
+    d="M0,160L48,160C96,160,192,160,288,170.7C384,181,480,203,576,197.3C672,192,768,160,864,165.3C960,171,1056,213,1152,213.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L0,320Z"
+    transform="translate(1438,0)">
+    </path>
+
+  </svg>
+</section>
+
+<div class="bubble-background"></div>
+    <h1>ビルクリーニング問題</h1>
+    <div class="container">
+
+
+<div id="scoreBoard">
+    <div id="count"></div>
+    score：<span id="score">0</span>　
+    miss：<span id="miss">0</span>
+</div>
+<div id="start">
+
+    <h2>セットを選んでください</h2>
+<br>
+    <button id="start40" onclick="startQuiz(1)">
+        全40問スタート
+    </button>
+
+    <br>
+
+    <button id="test30" class="random-btn" onclick="startQuiz(5)">
+        TEST✏30問
+    </button>
+</div>
+
+<div id="quiz" style="display:none;">
+<div id="questionText"></div>
+<img id="toolImage" width="400">
+    <div id="choices"></div>
+    <div id="result"></div>
+    <button id="next" onclick="nextQuestion()">次の問題</button>
+<button id="nextSet" onclick="goNextSet()" style="display:none;">
+次のセットへ進む
+</button>
+
+
+    </div>
+<button onclick="goHome()">RESET</button>
+</div>
+</div></div></div>
+
+</section>
+<script>
+    
+
+function makeChoices(correct){
+
+    let choices = [correct.answer];
+
+    while(choices.length < 4){
+
+        let random =
+            imageQuizData[Math.floor(
+                Math.random() * imageQuizData.length
+            )].answer;
+
+        if(!choices.includes(random)){
+            choices.push(random);
+        }
+    }
+
+    return choices.sort(() => Math.random() - 0.5);
+}
+
+
+let score = 0;
+let miss = 0;
+
+let allQuizData = [
+{image:"images/tool01.png",answer:"<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>"},
+{image:"images/tool02.png",answer:"<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>"},
+{image:"images/tool03.png",answer:"<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>"},
+{image:"images/tool04.png",answer:"<ruby>ハンディバキューム<rt>はんでぃばきゅーむ</rt></ruby>"},
+{image:"images/tool05.png",answer:"<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>"},
+
+{image:"images/tool06.png",answer:"<ruby>フロアパッド<rt>ふろあぱっど</rt></ruby>"},
+{image:"images/tool07.png",answer:"<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>"},
+{image:"images/tool08.png",answer:"<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>"},
+{image:"images/tool09.png",answer:"<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>"},
+{image:"images/tool10.png",answer:"<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>"},
+
+{image:"images/tool11.png",answer:"<ruby>送風機<rt>そうふうき</rt></ruby>"},
+{image:"images/tool12.png",answer:"<ruby>ハンドパッド<rt>はんどぱっど</rt></ruby>"},
+{image:"images/tool13.png",answer:"<ruby>静電気ほこり取り<rt>せいでんきほこりとり</rt></ruby>"},
+{image:"images/tool14.png",answer:"<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>"},
+{image:"images/tool15.png",answer:"<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>"},
+
+{image:"images/tool16.png",answer:"<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>"},
+{image:"images/tool17.png",answer:"<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>"},
+{image:"images/tool18.png",answer:"<ruby>作業カート<rt>さぎょうかーと</rt></ruby>"},
+{image:"images/tool19.png",answer:"<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>"},
+{image:"images/tool20.png",answer:"<ruby>手押し台車<rt>ておしだいしゃ</rt></ruby>"},
+
+{image:"images/tool21.png",answer:"<ruby>作業掲示板（フロアサイン）<rt>さぎょうけいじばん（ふろあさいん）</rt></ruby>"},
+{image:"images/tool22.png",answer:"<ruby>自在ほうき<rt>じざいほうき</rt></ruby>"},
+{image:"images/tool23.png",answer:"<ruby>シダほうき<rt>しだほうき</rt></ruby>"},
+{image:"images/tool24.png",answer:"<ruby>文化ちり取り<rt>ぶんかちりとり</rt></ruby>"},
+{image:"images/tool25.png",answer:"<ruby>ダストクロス<rt>だすとくろす</rt></ruby>"},
+
+{image:"images/tool26.png",answer:"<ruby>ダストクロス型モップ<rt>だすとくろすがたもっぷ</rt></ruby>"},
+{image:"images/tool27.png",answer:"<ruby>湿式モップ（ワンタッチモップ）<rt>しっしきもっぷ（わんたっちもっぷ）</rt></ruby>"},
+{image:"images/tool28.png",answer:"<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>"},
+{image:"images/tool29.png",answer:"<ruby>乾式モップ<rt>かんしきもっぷ</rt></ruby>"},
+{image:"images/tool30.png",answer:"<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>"},
+
+{image:"images/tool31.png",answer:"<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>"},
+{image:"images/tool32.png",answer:"<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>"},
+{image:"images/tool33.png",answer:"<ruby>汚水取り<rt>おすいとり</rt></ruby>"},
+{image:"images/tool34.png",answer:"<ruby>シャンパー<rt>しゃんぱー</rt></ruby>"},
+{image:"images/tool35.png",answer:"<ruby>ウインドスクイジー<rt>ういんどすくいじー</rt></ruby>"},
+
+{image:"images/tool36.png",answer:"<ruby>タオル<rt>たおる</rt></ruby>"},
+{image:"images/tool37.png",answer:"<ruby>超極細繊維クロス<rt>ちょうごくさいせんいくろす</rt></ruby>"},
+{image:"images/tool38.png",answer:"<ruby>毛かき<rt>けかき</rt></ruby>"},
+{image:"images/tool39.png",answer:"<ruby>バケツ<rt>ばけつ</rt></ruby>"},
+{image:"images/tool40.png",answer:"<ruby>モップ絞り器<rt>もっぷしぼりき</rt></ruby>"}
+,
+{type:"text",question:"<ruby>漏電<rt>ろうでん</rt></ruby>から<ruby>作業者<rt>さぎょうしゃ</rt></ruby>を<ruby>守<rt>まも</rt></ruby>る<ruby>装置<rt>そうち</rt></ruby>はどれ？",answer:"<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>",
+
+choices:[
+"<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>",
+"<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>",
+"<ruby>送風機<rt>そうふうき</rt></ruby>",
+"<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>"
+]},
+
+{
+type:"text",
+
+question:"<ruby>洗剤<rt>せんざい</rt></ruby>が<ruby>床<rt>ゆか</rt></ruby>にこぼれた<ruby>時<rt>とき</rt></ruby>どうしますか？",
+
+answer:"<ruby>すぐ</ruby>に<ruby>拭<rt>ふ</rt></ruby>いて<ruby>報告<rt>ほうこく</rt></ruby>する",
+
+choices:[
+"<ruby>紙<rt>かみ</rt></ruby>で<ruby>隠<rt>かく</rt></ruby>す",
+"<ruby>何<rt>なに</rt></ruby>もしない",
+"そのままにする",
+"<ruby>すぐ</ruby>に<ruby>拭<rt>ふ</rt></ruby>いて<ruby>報告<rt>ほうこく</rt></ruby>する"
+]
+},
+{
+type:"text",
+question:"<ruby>床<rt>ゆか</rt></ruby>を<ruby>磨<rt>みが</rt></ruby>く<ruby>機械<rt>きかい</rt></ruby>はどれですか？",
+answer:"<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>",
+
+choices:[
+"<ruby>扇風機<rt>せんぷうき</rt></ruby>",
+"プリンター",
+"<ruby>掃除機<rt>そうじき</rt></ruby>",
+"<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>機械<rt>きかい</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う<ruby>前<rt>まえ</rt></ruby>にすることは？",
+answer:"マニュアルを<ruby>確認<rt>かくにん</rt></ruby>する",
+
+choices:[
+"<ruby>無視<rt>むし</rt></ruby>する",
+"<ruby>壊<rt>こわ</rt></ruby>す",
+"マニュアルを<ruby>確認<rt>かくにん</rt></ruby>する",
+"すぐ<ruby>使<rt>つか</rt></ruby>う"
+]
+},
+{
+type:"text",
+question:"<ruby>体調<rt>たいちょう</rt></ruby>が<ruby>悪<rt>わる</rt></ruby>い<ruby>時<rt>とき</rt></ruby>どうしますか？",
+answer:"<ruby>上司<rt>じょうし</rt></ruby>に<ruby>報告<rt>ほうこく</rt></ruby>する",
+
+choices:[
+"そのまま<ruby>働<rt>はたら</rt></ruby>く",
+"<ruby>上司<rt>じょうし</rt></ruby>に<ruby>報告<rt>ほうこく</rt></ruby>する",
+"<ruby>隠<rt>かく</rt></ruby>す",
+"<ruby>我慢<rt>がまん</rt></ruby>する"
+]
+},
+{
+type:"text",
+question:"ごみの<ruby>分別<rt>ぶんべつ</rt></ruby>で<ruby>正<rt>ただ</rt></ruby>しいのはどれですか？",
+answer:"<ruby>燃<rt>も</rt></ruby>えるごみと<ruby>燃<rt>も</rt></ruby>えないごみに<ruby>分<rt>わ</rt></ruby>ける",
+
+choices:[
+"<ruby>全部<rt>ぜんぶ</rt></ruby><ruby>混<rt>ま</rt></ruby>ぜる",
+"どこでも<ruby>捨<rt>す</rt></ruby>てる",
+"<ruby>燃<rt>も</rt></ruby>えるごみと<ruby>燃<rt>も</rt></ruby>えないごみに<ruby>分<rt>わ</rt></ruby>ける",
+"<ruby>隠<rt>かく</rt></ruby>す"
+]
+},
+{
+type:"text",
+question:"<ruby>濡<rt>ぬ</rt></ruby>れた<ruby>床<rt>ゆか</rt></ruby>がある<ruby>時<rt>とき</rt></ruby>どうしますか？",
+answer:"<ruby>注意表示<rt>ちゅういひょうじ</rt></ruby>を<ruby>置<rt>お</rt></ruby>く",
+
+choices:[
+"<ruby>無視<rt>むし</rt></ruby>する",
+"<ruby>座<rt>すわ</rt></ruby>る",
+"<ruby>走<rt>はし</rt></ruby>る",
+"<ruby>注意表示<rt>ちゅういひょうじ</rt></ruby>を<ruby>置<rt>お</rt></ruby>く"
+]
+},{
+type:"text",
+question:"<ruby>作業後<rt>さぎょうご</rt></ruby>にすることは？",
+answer:"<ruby>片付<rt>かたづ</rt></ruby>ける",
+
+choices:[
+"<ruby>壊<rt>こわ</rt></ruby>す",
+"<ruby>隠<rt>かく</rt></ruby>す",
+"<ruby>片付<rt>かたづ</rt></ruby>ける",
+"<ruby>道具<rt>どうぐ</rt></ruby>を<ruby>放置<rt>ほうち</rt></ruby>する"
+]
+},
+{
+type:"text",
+question:"<ruby>手洗<rt>てあら</rt></ruby>いはいつしますか？",
+answer:"<ruby>前後<rt>ぜんご</rt></ruby>",
+
+choices:[
+"しない",
+"<ruby>前後<rt>ぜんご</rt></ruby>",
+"<ruby>週<rt>しゅう</rt></ruby>１<ruby>回<rt>かい</rt></ruby>",
+"<ruby>気分<rt>きぶん</rt></ruby>で"
+]
+},{
+type:"text",
+question:"<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>を<ruby>使<rt>つか</rt></ruby>う<ruby>前<rt>まえ</rt></ruby>にすることとして<ruby>正<rt>ただ</rt></ruby>しいのは？",
+answer:"マニュアルを<ruby>確認<rt>かくにん</rt></ruby>する",
+
+choices:[
+"コードを<ruby>踏<rt>ふ</rt></ruby>む",
+"<ruby>手袋<rt>てぶくろ</rt></ruby>を<ruby>外<rt>はず</rt></ruby>す",
+"マニュアルを<ruby>確認<rt>かくにん</rt></ruby>する",
+"すぐ<ruby>電源<rt>でんげん</rt></ruby>を<ruby>入<rt>い</rt></ruby>れる"
+]
+},{
+type:"text",
+question:"<ruby>床面清掃<rt>ゆかめんせいそう</rt></ruby>の<ruby>作業動線<rt>さぎょうどうせん</rt></ruby>で<ruby>正<rt>ただ</rt></ruby>しいものは？",
+answer:"<ruby>入口<rt>いりぐち</rt></ruby>から<ruby>奥<rt>おく</rt></ruby>へ<ruby>一方向<rt>いちほうこう</rt></ruby>に<ruby>進<rt>すす</rt></ruby>む",
+
+choices:[
+"ランダムに<ruby>動<rt>うご</rt></ruby>く",
+"<ruby>中央<rt>ちゅうおう</rt></ruby>から<ruby>外側<rt>がいそく</rt></ruby>へ",
+"<ruby>汚<rt>よご</rt></ruby>れを<ruby>奥<rt>おく</rt></ruby>から<ruby>入口<rt>いりぐち</rt></ruby>へ<ruby>押<rt>お</rt></ruby>し<ruby>出<rt>だ</rt></ruby>すように<ruby>進<rt>すす</rt></ruby>む",
+"<ruby>入口<rt>いりぐち</rt></ruby>から<ruby>奥<rt>おく</rt></ruby>へ<ruby>一方向<rt>いちほうこう</rt></ruby>に<ruby>進<rt>すす</rt></ruby>む"
+]
+},{
+type:"text",
+question:"<ruby>吸水<rt>きゅうすい</rt></ruby>バキュームの<ruby>正<rt>ただ</rt></ruby>しい<ruby>使<rt>つか</rt></ruby>い<ruby>方<rt>かた</rt></ruby>・<ruby>動線<rt>どうせん</rt></ruby>は？",
+answer:"<ruby>奥<rt>おく</rt></ruby>から<ruby>入口<rt>いりぐち</rt></ruby>へ<ruby>引<rt>ひ</rt></ruby>きながら<ruby>吸<rt>す</rt></ruby>う",
+
+choices:[
+"<ruby>円<rt>えん</rt></ruby>を<ruby>描<rt>えが</rt></ruby>くように<ruby>動<rt>うご</rt></ruby>かす",
+"<ruby>上下<rt>じょうげ</rt></ruby>に<ruby>振<rt>ふ</rt></ruby>るようにする",
+"<ruby>奥<rt>おく</rt></ruby>から<ruby>入口<rt>いりぐち</rt></ruby>へ<ruby>引<rt>ひ</rt></ruby>きながら<ruby>吸<rt>す</rt></ruby>う",
+"<ruby>入口側<rt>いりぐちがわ</rt></ruby>から<ruby>奥<rt>おく</rt></ruby>へ<ruby>押<rt>お</rt></ruby>し<ruby>進<rt>すす</rt></ruby>める"
+]
+},{
+type:"text",
+question:"ベッドメイキングを<ruby>始<rt>はじ</rt></ruby>める<ruby>前<rt>まえ</rt></ruby>に<ruby>最初<rt>さいしょ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>することは？",
+answer:"お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>荷物<rt>にもつ</rt></ruby>",
+
+choices:[
+"テレビをつける",
+"お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>荷物<rt>にもつ</rt></ruby>",
+"ベッドの<ruby>上<rt>うえ</rt></ruby>で<ruby>休<rt>やす</rt></ruby>む",
+"シーツの<ruby>色<rt>いろ</rt></ruby>だけを<ruby>見<rt>み</rt></ruby>る"
+]
+},{
+type:"text",
+question:"<ruby>枕<rt>まくら</rt></ruby>カバー<ruby>交換<rt>こうかん</rt></ruby>で<ruby>正<rt>ただ</rt></ruby>しい<ruby>方法<rt>ほうほう</rt></ruby>は？",
+answer:"カバーを<ruby>裏返<rt>うらがえ</rt></ruby>して<ruby>丁寧<rt>ていねい</rt></ruby>につける",
+
+choices:[
+"<ruby>手袋<rt>てぶくろ</rt></ruby>をしないで<ruby>行<rt>おこな</rt></ruby>う",
+"すぐ<ruby>取<rt>と</rt></ruby>り<ruby>除<rt>のぞ</rt></ruby>く",
+"カバーを<ruby>裏返<rt>うらがえ</rt></ruby>して<ruby>丁寧<rt>ていねい</rt></ruby>につける",
+"<ruby>汚<rt>よご</rt></ruby>れたまま<ruby>使<rt>つか</rt></ruby>う"
+]
+},
+{
+type:"text",
+question:"ベッドの<ruby>角<rt>かど</rt></ruby>をきれいに<ruby>折<rt>お</rt></ruby>り<ruby>込<rt>こ</rt></ruby>む<ruby>方法<rt>ほうほう</rt></ruby>を<ruby>何<rt>なん</rt></ruby>と<ruby>呼<rt>よ</rt></ruby>びますか？",
+answer:"ホテルコーナー",
+
+choices:[
+"フレンチ<ruby>折<rt>お</rt></ruby>り",
+"<ruby>三角折<rt>さんかくお</rt></ruby>り",
+"ホテルコーナー",
+"ダブル<ruby>巻<rt>ま</rt></ruby>き"
+]
+},{
+type:"text",
+question:"お<ruby>客様<rt>きゃくさま</rt></ruby>の<ruby>私物<rt>しぶつ</rt></ruby>がベッドにあった<ruby>場合<rt>ばあい</rt></ruby>どうしますか？",
+answer:"<ruby>丁寧<rt>ていねい</rt></ruby>によけて<ruby>触<rt>ふ</rt></ruby>れすぎない",
+
+choices:[
+"<ruby>勝手<rt>かって</rt></ruby>に<ruby>使<rt>つか</rt></ruby>う",
+"<ruby>別<rt>べつ</rt></ruby>の<ruby>場所<rt>ばしょ</rt></ruby>へ<ruby>隠<rt>かく</rt></ruby>す",
+"<ruby>丁寧<rt>ていねい</rt></ruby>によけて<ruby>触<rt>ふ</rt></ruby>れすぎない",
+"<ruby>捨<rt>す</rt></ruby>てる"
+]
+},
+];
+
+const imageQuizData =
+    allQuizData.filter(q => q.image);
+
+let quizSet1 = allQuizData.slice(0, 50);
+let quizSet2 = allQuizData.slice(50);
+
+let quizData = [];
+
+
+
+
+let currentSet = 1;
+quizData = quizSet1
+
+let current = 0;
+let wrongQuestions = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: []
+};
+let reviewMode = false;
+
+function startQuiz(set){
+    score = 0;
+    miss = 0;
+
+    document.getElementById("start40").style.display = "none";
+    document.getElementById("test30").style.display = "none";
+
+
+
+document.getElementById("score").textContent = score;
+document.getElementById("miss").textContent = miss;
+
+    currentSet = set;  // ←追加
+
+    document.getElementById("start").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+
+if(set === 1){
+
+    quizData = [...allQuizData];
+
+    for(let i = quizData.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
+    }
+
+}else if(set === 5){
+
+    quizData = [...allQuizData];
+
+    for(let i = quizData.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
+    }
+
+    quizData = quizData.slice(0,30);
+}
+
+
+
+    current = 0;
+    loadQuiz();
+}
+
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+function goHome(){
+
+    document.getElementById("start40").style.display = "inline-block";
+    document.getElementById("test30").style.display = "inline-block";
+
+
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("start").style.display = "block";
+
+    current = 0;
+    currentSet = 1;
+    reviewMode = false;
+
+wrongQuestions = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: []
+};
+
+
+    document.getElementById("count").textContent = "";
+}
+
+function loadQuiz(){
+
+    document.getElementById("result").textContent="";
+    document.getElementById("next").style.display="none";
+
+const q = quizData[current];
+
+if(q.image){
+
+    document.getElementById("toolImage").style.display = "block";
+    document.getElementById("questionText").style.display = "none";
+
+    document.getElementById("toolImage").src = q.image;
+
+}else{
+
+    document.getElementById("toolImage").style.display = "none";
+    document.getElementById("questionText").style.display = "block";
+
+    document.getElementById("questionText").innerHTML =
+        q.question;
+}
+
+
+    document.getElementById("count").textContent =
+        (current + 1) + " / " + quizData.length;
+
+    const area =
+        document.getElementById("choices");
+
+    area.innerHTML="";
+
+   
+
+const choices = q.choices
+    ? q.choices
+    : makeChoices(q);
+
+
+
+    choices.forEach(choice=>{
+
+        const btn =
+            document.createElement("button");
+
+        btn.innerHTML = choice;
+
+        btn.onclick = function(){
+
+            if(choice === q.answer){
+
+                score++;
+
+                document.getElementById("result")
+                    .textContent = "〇 正解！";
+
+            }else{
+
+                miss++;
+
+                document.getElementById("result")
+                    .innerHTML =
+                    "× 不正解！ 正解は「" +
+                    q.answer + "」";
+            }
+
+            document.getElementById("score")
+                .textContent = score;
+
+            document.getElementById("miss")
+                .textContent = miss;
+
+            document
+            .querySelectorAll("#choices button")
+            .forEach(b => b.disabled = true);
+
+            document.getElementById("next")
+                .style.display="inline-block";
+        };
+
+        area.appendChild(btn);
+    });
+}
+function goNextSet(){
+
+    currentSet++;
+
+    if(currentSet === 2){
+        quizData = allQuizData.slice(50,100);
+    }else if(currentSet === 3){
+        quizData = allQuizData.slice(100,150);
+    }else if(currentSet === 4){
+        quizData = allQuizData.slice(150);
+    }else{
+        alert("全セット終了です！");
+        goHome();
+        return;
+    }
+
+    current = 0;
+    reviewMode = false;
+
+    document.getElementById("nextSet").style.display = "none";
+
+    loadQuiz();
+}
+function nextQuestion(){
+
+    current++;
+
+    if(current >= quizData.length){
+
+        // 復習モード終了
+        if(reviewMode){
+
+            reviewMode = false;
+
+            document.getElementById("choices").innerHTML = "";
+            document.getElementById("result").textContent =
+            "復習終了！";
+
+            document.getElementById("next").style.display = "none";
+            document.getElementById("nextSet").style.display = "inline-block";
+
+            return;
+        }
+
+// ランダム30問は復習なし
+if(currentSet == 5){
+
+    document.getElementById("choices").innerHTML = "";
+    document.getElementById("result").innerHTML =
+        "🏆 テスト30問終了！<br>" +
+        "30点中 " + score + " 点でした。";
+
+    document.getElementById("next").style.display = "none";
+    document.getElementById("nextSet").style.display = "none";
+    return;
+}
+
+// 間違いがあれば復習
+if(wrongQuestions[currentSet].length > 0){
+
+            alert("セット" + currentSet + "の復習を行います");
+
+            quizData = wrongQuestions[currentSet];
+            wrongQuestions[currentSet] = [];
+
+            current = 0;
+            reviewMode = true;
+
+            loadQuiz();
+            return;
+        }
+
+// 間違いなしでセット終了
+
+document.getElementById("choices").innerHTML = "";
+
+if(currentSet == 5){
+    document.getElementById("result").innerHTML =
+        "🏆 テスト30問終了！<br>30点中 " + score + " 点でした。";
+
+    document.getElementById("next").style.display = "none";
+    document.getElementById("nextSet").style.display = "none";
+    return;
+}
+
+document.getElementById("result").textContent =
+    "セット" + currentSet + "終了！";
+
+document.getElementById("next").style.display = "none";
+document.getElementById("nextSet").style.display = "inline-block";
+
+return;
+    }
+
+    loadQuiz();
+}
+document.addEventListener('DOMContentLoaded', () => {
+  // コンテナを指定
+const section = document.querySelector(".bubble-background");
+  // 泡を生成する関数
+  const createBubble = () => {
+    const bubbleEl = document.createElement('span');
+    bubbleEl.className = 'bubble';
+    const minSize = 10;
+    const maxSize = 50;
+    const size = Math.random() * (maxSize + 1 - minSize) + minSize;
+    bubbleEl.style.width = `${size}px`;
+    bubbleEl.style.height = `${size}px`;
+    bubbleEl.style.left = Math.random() * innerWidth + 'px';
+    section.appendChild(bubbleEl);
+
+    // 一定時間が経てば泡を消す
+    setTimeout(() => {
+      bubbleEl.remove();
+    }, 8000);
+  };
+
+setInterval(createBubble, 1200);
+
+});
+</script>
+
+</body>
+</html>
