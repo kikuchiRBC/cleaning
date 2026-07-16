@@ -573,6 +573,7 @@ let score = 0;
 let miss = 0;
 
 let allQuizData = [
+    
 {image:"images/tool01.png",answer:"<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>"},
 {image:"images/tool02.png",answer:"<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>"},
 {image:"images/tool03.png",answer:"<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>"},
@@ -805,10 +806,61 @@ choices:[
 "<ruby>捨<rt>す</rt></ruby>てる"
 ]
 },
+{type: "text",
+  image: "images/tool42.png",
+  answer: "2",
+  choices: ["1","2","3","4"]
+},
+{type: "text",
+  image: "images/tool43.png",
+  answer: "C",
+  choices: ["A","B","C","D"]
+},
+{type: "text",
+  image: "images/tool44.png",
+  answer: "C",
+  choices: ["A","B","C","D"]
+},
+{type: "text",
+  image: "images/tool45.png",
+  answer: "C",
+  choices: ["A","B","C","D"]
+},
+{type: "text",
+  image: "images/tool46.png",
+  answer: "B",
+  choices: ["A","B","C","D"]
+},
+{type: "text",
+  image: "images/tool47.png",
+  answer: "PH6",
+  choices: ["PH0","PH3","PH6","PH14"]
+},
+{type: "text",
+  image: "images/tool48.png",
+  answer: "PH14",
+  choices: ["PH0","PH3","PH6","PH14"]
+},
+{type: "text",
+  image: "images/tool49.png",
+  answer: "PH4",
+  choices: ["PH0","PH4","PH6","PH14"]
+},
+{type: "text",
+  image: "images/tool48.png",
+  answer: "PH8",
+  choices: ["PH0","PH4","PH6","PH8"]
+},
 ];
 
+
 const imageQuizData =
-    allQuizData.filter(q => q.image);
+    allQuizData.filter(q =>
+        q.image &&
+        !["1","2","3","4","A","B","C","D","PH0","PH3","PH4","PH6","PH8","PH14"]
+            .includes(q.answer)
+    );
+
 
 let quizSet1 = allQuizData.slice(0, 50);
 let quizSet2 = allQuizData.slice(50);
