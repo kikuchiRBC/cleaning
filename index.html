@@ -57,7 +57,9 @@ rt{
     font-weight:bold;
 }
 
-
+.question-list-page rt{
+    color:black !important;
+}
 
 
 .animated-wave{  
@@ -515,7 +517,25 @@ text-shadow:
     miss：<span id="miss">0</span>
 </div>
 <div id="start">
+<div id="questionList" style="display:none;">
+    <h2>問題一覧</h2>
 
+    <div id="questionListArea"
+         style="
+         text-align:left;
+         max-height:600px;
+         overflow-y:auto;
+         background:rgb(218, 233, 255);
+         padding:20px;
+         border-radius:10px;">
+    </div>
+
+    <br>
+
+    <button onclick="closeQuestionList()">
+        閉じる
+    </button>
+</div>
     <h2>セットを選んでください</h2>
 <br>
     <button id="start40" onclick="startQuiz(1)">
@@ -527,6 +547,12 @@ text-shadow:
     <button id="test30" class="random-btn" onclick="startQuiz(5)">
         TEST✏30問
     </button>
+<br>
+    <button onclick="showQuestionList()">
+
+📚 問題一覧（こたえあり）
+
+</button>
 </div>
 
 <div id="quiz" style="display:none;">
@@ -1548,7 +1574,339 @@ choices:[
 "フロアスクイジー",
 "デッキブラシ"
 ]
-}
+},
+
+{
+type:"text",
+question:"ポリッシャーを<ruby>使<rt>つか</rt></ruby>う<ruby>前<rt>まえ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>するものは？",
+answer:"<ruby>電源<rt>でんげん</rt></ruby>コード",
+choices:[
+"<ruby>天気<rt>てんき</rt></ruby>",
+"<ruby>電源<rt>でんげん</rt></ruby>コード",
+"<ruby>時計<rt>とけい</rt></ruby>",
+"<ruby>壁紙<rt>かべがみ</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"ワックスを<ruby>塗<rt>ぬ</rt></ruby>った<ruby>後<rt>あと</rt></ruby>、<ruby>乾<rt>かわ</rt></ruby>く<ruby>前<rt>まえ</rt></ruby>に<ruby>歩<rt>ある</rt></ruby>くとどうなりますか？",
+answer:"<ruby>仕上<rt>しあ</rt></ruby>がりが<ruby>悪<rt>わる</rt></ruby>くなる",
+choices:[
+"<ruby>光沢<rt>こうたく</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>える",
+"<ruby>仕上<rt>しあ</rt></ruby>がりが<ruby>悪<rt>わる</rt></ruby>くなる",
+"<ruby>問題<rt>もんだい</rt></ruby>ない",
+"<ruby>床<rt>ゆか</rt></ruby>が<ruby>丈夫<rt>じょうぶ</rt></ruby>になる"
+]
+},
+{
+type:"text",
+question:"ガラス<ruby>清掃<rt>せいそう</rt></ruby>でよく<ruby>使<rt>つか</rt></ruby>う<ruby>道具<rt>どうぐ</rt></ruby>は？",
+answer:"スクイジー",
+choices:[
+"デッキブラシ",
+"スクイジー",
+"モップ",
+"ちりとり"
+]
+},
+{
+type:"text",
+question:"<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>決<rt>き</rt></ruby>められたより<ruby>濃<rt>こ</rt></ruby>く<ruby>使<rt>つか</rt></ruby>うとどうなりますか？",
+answer:"<ruby>床材<rt>ゆかざい</rt></ruby>を<ruby>傷<rt>いた</rt></ruby>める",
+choices:[
+"<ruby>床材<rt>ゆかざい</rt></ruby>を<ruby>傷<rt>いた</rt></ruby>める",
+"<ruby>掃除<rt>そうじ</rt></ruby>が<ruby>不要<rt>ふよう</rt></ruby>になる",
+"<ruby>水<rt>みず</rt></ruby>になる",
+"<ruby>汚<rt>よご</rt></ruby>れがなくなる"
+]
+},
+{
+type:"text",
+question:"<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>別<rt>べつ</rt></ruby>の<ruby>容器<rt>ようき</rt></ruby>へ<ruby>移<rt>うつ</rt></ruby>したとき、まずすることは？",
+answer:"ラベルを<ruby>貼<rt>は</rt></ruby>る",
+choices:[
+"ラベルを<ruby>貼<rt>は</rt></ruby>る",
+"<ruby>水<rt>みず</rt></ruby>を<ruby>足<rt>た</rt></ruby>す",
+"<ruby>捨<rt>す</rt></ruby>てる",
+"<ruby>振<rt>ふ</rt></ruby>り<ruby>回<rt>まわ</rt></ruby>す"
+]
+},
+{
+type:"text",
+question:"<ruby>古<rt>ふる</rt></ruby>いワックスを<ruby>取<rt>と</rt></ruby>り<ruby>除<rt>のぞ</rt></ruby>く<ruby>作業<rt>さぎょう</rt></ruby>をなんといいますか？",
+answer:"<ruby>剥離洗浄<rt>はくりせんじょう</rt></ruby>",
+choices:[
+"<ruby>表面洗浄<rt>ひょうめんせんじょう</rt></ruby>",
+"<ruby>剥離洗浄<rt>はくりせんじょう</rt></ruby>",
+"<ruby>乾燥作業<rt>かんそうさぎょう</rt></ruby>",
+"<ruby>除菌作業<rt>じょきんさぎょう</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>病院<rt>びょういん</rt></ruby>の<ruby>清掃<rt>せいそう</rt></ruby>で<ruby>最<rt>もっと</rt></ruby>も<ruby>重要<rt>じゅうよう</rt></ruby>なことは？",
+answer:"<ruby>感染予防<rt>かんせんよぼう</rt></ruby>",
+choices:[
+"<ruby>感染予防<rt>かんせんよぼう</rt></ruby>",
+"<ruby>節電<rt>せつでん</rt></ruby>",
+"<ruby>時短<rt>じたん</rt></ruby>",
+"<ruby>装飾<rt>そうしょく</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>保護具<rt>ほごぐ</rt></ruby>として<ruby>不適切<rt>ふてきせつ</rt></ruby>なものはどれですか？",
+answer:"サンダル",
+choices:[
+"<ruby>手袋<rt>てぶくろ</rt></ruby>",
+"<ruby>保護<rt>ほご</rt></ruby>メガネ",
+"<ruby>マスク<rt>ますく</rt></ruby>",
+"サンダル"
+]
+},
+{
+type:"text",
+question:"<ruby>清掃<rt>せいそう</rt></ruby>をするとき「<ruby>上<rt>うえ</rt></ruby>から<ruby>下<rt>した</rt></ruby>へ」の<ruby>順<rt>じゅん</rt></ruby>で<ruby>行<rt>おこな</rt></ruby>う<ruby>理由<rt>りゆう</rt></ruby>は？",
+answer:"<ruby>汚<rt>よご</rt></ruby>れが<ruby>下<rt>した</rt></ruby>に<ruby>落<rt>お</rt></ruby>ちるから",
+choices:[
+"<ruby>道具<rt>どうぐ</rt></ruby>が<ruby>軽<rt>かる</rt></ruby>いから",
+"<ruby>汚<rt>よご</rt></ruby>れが<ruby>下<rt>した</rt></ruby>に<ruby>落<rt>お</rt></ruby>ちるから",
+"<ruby>水<rt>みず</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えるから",
+"<ruby>掃除<rt>そうじ</rt></ruby>が<ruby>速<rt>はや</rt></ruby>くなるから"
+]
+},
+{
+type:"text",
+question:"<ruby>洗剤<rt>せんざい</rt></ruby>と<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>勝手<rt>かって</rt></ruby>に<ruby>混<rt>ま</rt></ruby>ぜてはいけない<ruby>理由<rt>りゆう</rt></ruby>は？",
+answer:"<ruby>危険<rt>きけん</rt></ruby>なガスが<ruby>発生<rt>はっせい</rt></ruby>することがある",
+choices:[
+"<ruby>色<rt>いろ</rt></ruby>が<ruby>変<rt>か</rt></ruby>わるだけ",
+"<ruby>危険<rt>きけん</rt></ruby>なガスが<ruby>発生<rt>はっせい</rt></ruby>することがある",
+"<ruby>泡<rt>あわ</rt></ruby>が<ruby>増<rt>ふ</rt></ruby>えるだけ",
+"<ruby>問題<rt>もんだい</rt></ruby>ない"
+]
+},
+{
+type:"text",
+question:"<ruby>作業中<rt>さぎょうちゅう</rt></ruby>にコードが<ruby>通路<rt>つうろ</rt></ruby>をまたいでいるときはどうしますか？",
+answer:"<ruby>人<rt>ひと</rt></ruby>がつまずかないようにする",
+choices:[
+"<ruby>放置<rt>ほうち</rt></ruby>する",
+"<ruby>人<rt>ひと</rt></ruby>がつまずかないようにする",
+"<ruby>上<rt>うえ</rt></ruby>から<ruby>水<rt>みず</rt></ruby>をかける",
+"<ruby>足<rt>あし</rt></ruby>で<ruby>押<rt>お</rt></ruby>さえる"
+]
+},
+{
+type:"text",
+question:"マイクロファイバークロスの<ruby>特徴<rt>とくちょう</rt></ruby>は？",
+answer:"<ruby>汚<rt>よご</rt></ruby>れをよく<ruby>取<rt>と</rt></ruby>る",
+choices:[
+"<ruby>水<rt>みず</rt></ruby>を<ruby>吸<rt>す</rt></ruby>わない",
+"<ruby>汚<rt>よご</rt></ruby>れをよく<ruby>取<rt>と</rt></ruby>る",
+"<ruby>金属<rt>きんぞく</rt></ruby>だけに<ruby>使<rt>つか</rt></ruby>う",
+"<ruby>必<rt>かなら</rt></ruby>ず<ruby>洗剤<rt>せんざい</rt></ruby>が<ruby>必要<rt>ひつよう</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>床<rt>ゆか</rt></ruby>が<ruby>滑<rt>すべ</rt></ruby>りやすくなり、<ruby>転倒<rt>てんとう</rt></ruby>する<ruby>危険<rt>きけん</rt></ruby>をなんといいますか？",
+answer:"すべり<ruby>災害<rt>さいがい</rt></ruby>",
+choices:[
+"<ruby>火災<rt>かさい</rt></ruby>",
+"すべり<ruby>災害<rt>さいがい</rt></ruby>",
+"<ruby>騒音<rt>そうおん</rt></ruby><ruby>災害<rt>さいがい</rt></ruby>",
+"<ruby>感電<rt>かんでん</rt></ruby><ruby>災害<rt>さいがい</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>剥離剤<rt>はくりざい</rt></ruby>を<ruby>使用<rt>しよう</rt></ruby>するとき、<ruby>最<rt>もっと</rt></ruby>も<ruby>重要<rt>じゅうよう</rt></ruby>なことは？",
+answer:"<ruby>換気<rt>かんき</rt></ruby>をする",
+choices:[
+"<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>める",
+"<ruby>換気<rt>かんき</rt></ruby>をする",
+"<ruby>照明<rt>しょうめい</rt></ruby>を<ruby>消<rt>け</rt></ruby>す",
+"<ruby>音楽<rt>おんがく</rt></ruby>をかける"
+]
+},
+{
+type:"text",
+question:"<ruby>洗剤<rt>せんざい</rt></ruby>の<ruby>原液<rt>げんえき</rt></ruby>を<ruby>使用<rt>しよう</rt></ruby>する<ruby>前<rt>まえ</rt></ruby>に<ruby>確認<rt>かくにん</rt></ruby>するものは？",
+answer:"<ruby>使用方法<rt>しようほうほう</rt></ruby>と<ruby>希釈率<rt>きしゃくりつ</rt></ruby>",
+choices:[
+"<ruby>天気予報<rt>てんきよほう</rt></ruby>",
+"<ruby>使用方法<rt>しようほうほう</rt></ruby>と<ruby>希釈率<rt>きしゃくりつ</rt></ruby>",
+"<ruby>建物<rt>たてもの</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>",
+"<ruby>作業員<rt>さぎょういん</rt></ruby>の<ruby>年齢<rt>ねんれい</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>病院<rt>びょういん</rt></ruby>で<ruby>使用<rt>しよう</rt></ruby>したクロスを、ほかの<ruby>場所<rt>ばしょ</rt></ruby>でも<ruby>使<rt>つか</rt></ruby>うのはなぜ<ruby>危険<rt>きけん</rt></ruby>ですか？",
+answer:"<ruby>感染<rt>かんせん</rt></ruby>を<ruby>広<rt>ひろ</rt></ruby>げるおそれがある",
+choices:[
+"<ruby>色<rt>いろ</rt></ruby>が<ruby>変<rt>か</rt></ruby>わるから",
+"<ruby>感染<rt>かんせん</rt></ruby>を<ruby>広<rt>ひろ</rt></ruby>げるおそれがある",
+"<ruby>水<rt>みず</rt></ruby>が<ruby>減<rt>へ</rt></ruby>るから",
+"<ruby>重<rt>おも</rt></ruby>くなるから"
+]
+},
+{
+type:"text",
+question:"ポリッシャーのコードに<ruby>傷<rt>きず</rt></ruby>を<ruby>発見<rt>はっけん</rt></ruby>したとき、どうしますか？",
+answer:"<ruby>使用<rt>しよう</rt></ruby>を<ruby>中止<rt>ちゅうし</rt></ruby>する",
+choices:[
+"<ruby>気<rt>き</rt>にせず<ruby>使<rt>つか</rt></ruby>う",
+"<ruby>水<rt>みず</rt></ruby>をかける",
+"<ruby>使用<rt>しよう</rt></ruby>を<ruby>中止<rt>ちゅうし</rt></ruby>する",
+"<ruby>足<rt>あし</rt></ruby>でふむ"
+]
+},
+{
+type:"text",
+question:"<ruby>床<rt>ゆか</rt></ruby>にワックスを<ruby>塗<rt>ぬ</rt></ruby>るとき、<ruby>正<rt>ただ</rt></ruby>しい<ruby>方法<rt>ほうほう</rt></ruby>はどれですか？",
+answer:"<ruby>奥<rt>おく</rt></ruby>から<ruby>出口<rt>でぐち</rt></ruby>に<ruby>向<rt>む</rt></ruby>かって<ruby>塗<rt>ぬ</rt></ruby>る",
+choices:[
+"<ruby>出口<rt>でぐち</rt></ruby>を<ruby>塞<rt>ふさ</rt></ruby>ぐ",
+"<ruby>中央<rt>ちゅうおう</rt></ruby>だけ<ruby>塗<rt>ぬ</rt></ruby>る",
+"<ruby>奥<rt>おく</rt></ruby>から<ruby>出口<rt>でぐち</rt></ruby>に<ruby>向<rt>む</rt></ruby>かって<ruby>塗<rt>ぬ</rt></ruby>る",
+"<ruby>乾燥<rt>かんそう</rt></ruby>を<ruby>待<rt>ま</rt></ruby>たずに<ruby>歩<rt>ある</rt></ruby>く"
+]
+},
+{
+type:"text",
+question:"<ruby>清掃作業<rt>せいそうさぎょう</rt></ruby>で「5S」の「躾」はどういう<ruby>意味<rt>いみ</rt></ruby>ですか？",
+answer:"<ruby>決<rt>き</rt></ruby>められたことを<ruby>守<rt>まも</rt></ruby>る",
+choices:[
+"<ruby>遊<rt>あそ</rt></ruby>ぶ",
+"<ruby>決<rt>き</rt></ruby>められたことを<ruby>守<rt>まも</rt></ruby>る",
+"<ruby>早<rt>はや</rt></ruby>く<ruby>帰<rt>かえ</rt></ruby>る",
+"<ruby>道具<rt>どうぐ</rt></ruby>を<ruby>買<rt>か</rt></ruby>う"
+]
+},
+{
+type:"text",
+question:"<ruby>清掃中<rt>せいそうちゅう</rt></ruby>に<ruby>利用者<rt>りようしゃ</rt></ruby>が<ruby>近<rt>ちか</rt></ruby>づいてきたら、まずどうしますか？",
+answer:"<ruby>安全<rt>あんぜん</rt></ruby>に<ruby>配慮<rt>はいりょ</rt></ruby>して<ruby>声<rt>こえ</rt></ruby>をかける",
+choices:[
+"<ruby>無視<rt>むし</rt></ruby>する",
+"<ruby>作業<rt>さぎょう</rt></ruby>を<ruby>続<rt>つづ</rt></ruby>ける",
+"<ruby>安全<rt>あんぜん</rt></ruby>に<ruby>配慮<rt>はいりょ</rt></ruby>して<ruby>声<rt>こえ</rt></ruby>をかける",
+"<ruby>その<ruby>場<rt>ば</rt></ruby>を<ruby>離<rt>はな</rt></ruby>れる"
+]
+},
+{
+type:"text",
+question:"<ruby>洗剤<rt>せんざい</rt></ruby>の<ruby>希釈<rt>きしゃく</rt></ruby><ruby>倍率<rt>ばいりつ</rt></ruby>が100<ruby>倍<rt>ばい</rt></ruby>のとき、<ruby>原液<rt>げんえき</rt></ruby>を<ruby>濃<rt>こ</rt></ruby>くしすぎるとどうなりますか？",
+answer:"<ruby>床材<rt>ゆかざい</rt></ruby>を<ruby>傷<rt>きず</rt></ruby>めるおそれがある",
+choices:[
+"<ruby>作業<rt>さぎょう</rt></ruby>が<ruby>不要<rt>ふよう</rt></ruby>になる",
+"<ruby>床材<rt>ゆかざい</rt></ruby>を<ruby>傷<rt>きず</rt></ruby>めるおそれがある",
+"<ruby>汚<rt>よご</rt></ruby>れが<ruby>増<rt>ふ</rt></ruby>える",
+"<ruby>水<rt>みず</rt></ruby>だけになる"
+]
+},
+{
+type:"text",
+question:"<ruby>作業中<rt>さぎょうちゅう</rt></ruby>に<ruby>機械<rt>きかい</rt></ruby>から<ruby>異常<rt>いじょう</rt></ruby>な<ruby>音<rt>おと</rt></ruby>がしたらどうしますか？",
+answer:"<ruby>使用<rt>しよう</rt></ruby>を<ruby>中止<rt>ちゅうし</rt></ruby>する",
+choices:[
+"<ruby>使用<rt>しよう</rt></ruby>を<ruby>中止<rt>ちゅうし</rt></ruby>する",
+"<ruby>音楽<rt>おんがく</rt></ruby>をかける",
+"<ruby>強<rt>つよ</rt></ruby>く<ruby>押<rt>お</rt></ruby>す",
+"<ruby>無視<rt>むし</rt></ruby>する"
+]
+},
+{
+type:"text",
+question:"<ruby>病院<rt>びょういん</rt></ruby>で<ruby>使用<rt>しよう</rt></ruby>するクロスを<ruby>色分<rt>いろわ</rt></ruby>けする<ruby>理由<rt>りゆう</rt></ruby>は？",
+answer:"<ruby>感染<rt>かんせん</rt></ruby>を<ruby>防<rt>ふせ</rt></ruby>ぐため",
+choices:[
+"<ruby>見<rt>み</rt></ruby>た<ruby>目<rt>め</rt></ruby>をよくするため",
+"<ruby>感染<rt>かんせん</rt></ruby>を<ruby>防<rt>ふせ</rt></ruby>ぐため",
+"<ruby>安<rt>やす</rt></ruby>くするため",
+"<ruby>軽<rt>かる</rt></ruby>くするため"
+]
+},
+{
+type:"text",
+question:"ポリッシャーを<ruby>使用<rt>しよう</rt></ruby>するとき、コードはどうするのが<ruby>適切<rt>てきせつ</rt></ruby>ですか？",
+answer:"<ruby>機械<rt>きかい</rt></ruby>に<ruby>巻<rt>ま</rt></ruby>き<ruby>込<rt>こ</rt></ruby>まないようにする",
+choices:[
+"<ruby>床<rt>ゆか</rt></ruby>に<ruby>放置<rt>ほうち</rt></ruby>する",
+"<ruby>水<rt>みず</rt></ruby>につける",
+"<ruby>機械<rt>きかい</rt></ruby>に<ruby>巻<rt>ま</rt></ruby>き<ruby>込<rt>こ</rt></ruby>まないようにする",
+"<ruby>足<rt>あし</rt></ruby>で<ruby>踏<rt>ふ</rt></ruby>む"
+]
+},
+{
+type:"text",
+question:"<ruby>剥離洗浄<rt>はくりせんじょう</rt></ruby>の<ruby>後<rt>あと</rt></ruby>に<ruby>最<rt>もっと</rt></ruby>も<ruby>重要<rt>じゅうよう</rt></ruby>な<ruby>作業<rt>さぎょう</rt></ruby>は？",
+answer:"<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>残<rt>のこ</rt></ruby>さず<ruby>除去<rt>じょきょ</rt></ruby>する",
+choices:[
+"<ruby>窓<rt>まど</rt></ruby>を<ruby>閉<rt>し</rt></ruby>める",
+"<ruby>照明<rt>しょうめい</rt></ruby>を<ruby>消<rt>け</rt></ruby>す",
+"<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>残<rt>のこ</rt></ruby>さず<ruby>除去<rt>じょきょ</rt></ruby>する",
+"<ruby>何<rt>なに</rt></ruby>もしない"
+]
+},
+{
+type:"text",
+question:"<ruby>清掃作業<rt>せいそうさぎょう</rt></ruby>でPPEとは<ruby>何<rt>なに</rt></ruby>を<ruby>意味<rt>いみ</rt></ruby>しますか？",
+answer:"<ruby>個人用保護具<rt>こじんようほごぐ</rt></ruby>",
+choices:[
+"<ruby>清掃計画<rt>せいそうけいかく</rt></ruby>",
+"<ruby>個人用保護具<rt>こじんようほごぐ</rt></ruby>",
+"<ruby>消火設備<rt>しょうかせつび</rt></ruby>",
+"<ruby>作業報告書<rt>さぎょうほうこくしょ</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>水<rt>みず</rt></ruby>でぬれたコンセントの<ruby>近<rt>ちか</rt></ruby>くで<ruby>作業<rt>さぎょう</rt></ruby>するときの<ruby>危険<rt>きけん</rt></ruby>は？",
+answer:"<ruby>感電<rt>かんでん</rt></ruby>",
+choices:[
+"<ruby>騒音<rt>そうおん</rt></ruby>",
+"<ruby>感電<rt>かんでん</rt></ruby>",
+"<ruby>日焼<rt>ひや</rt></ruby>け",
+"<ruby>乾燥<rt>かんそう</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>作業前<rt>さぎょうまえ</rt></ruby>のKYとは<ruby>何<rt>なに</rt></ruby>を<ruby>意味<rt>いみ</rt></ruby>しますか？",
+answer:"<ruby>危険予知<rt>きけんよち</rt></ruby>",
+choices:[
+"<ruby>機械輸送<rt>きかいゆそう</rt></ruby>",
+"<ruby>危険予知<rt>きけんよち</rt></ruby>",
+"<ruby>緊急要請<rt>きんきゅうようせい</rt></ruby>",
+"<ruby>教育予定<rt>きょういくよてい</rt></ruby>"
+]
+},
+{
+type:"text",
+question:"<ruby>床<rt>ゆか</rt></ruby>の<ruby>表面洗浄<rt>ひょうめんせんじょう</rt></ruby>で、<ruby>汚水<rt>おすい</rt></ruby>はどうしますか？",
+answer:"<ruby>速<rt>すみ</rt></ruby>やかに<ruby>回収<rt>かいしゅう</rt></ruby>する",
+choices:[
+"<ruby>放置<rt>ほうち</rt></ruby>する",
+"<ruby>乾<rt>かわ</rt></ruby>くまで<ruby>待<rt>ま</rt></ruby>つ",
+"<ruby>速<rt>すみ</rt></ruby>やかに<ruby>回収<rt>かいしゅう</rt></ruby>する",
+"<ruby>広<rt>ひろ</rt></ruby>げる"
+]
+},
+{
+type:"text",
+question:"<ruby>清掃資機材<rt>せいそうしきざい</rt></ruby>を<ruby>使用後<rt>しようご</rt></ruby>に<ruby>手入<rt>てい</rt></ruby>れする<ruby>主<rt>おも</rt></ruby>な<ruby>目的<rt>もくてき</rt></ruby>は？",
+answer:"<ruby>性能<rt>せいのう</rt></ruby>を<ruby>維持<rt>いじ</rt></ruby>するため",
+choices:[
+"<ruby>色<rt>いろ</rt></ruby>を<ruby>変<rt>か</rt></ruby>えるため",
+"<ruby>重<rt>おも</rt></ruby>くするため",
+"<ruby>性能<rt>せいのう</rt></ruby>を<ruby>維持<rt>いじ</rt></ruby>するため",
+"<ruby>音<rt>おと</rt></ruby>をだすため"
+]
+},
+
 
 ];
 
@@ -1858,6 +2216,75 @@ const section = document.querySelector(".bubble-background");
 setInterval(createBubble, 1200);
 
 });
+
+function showQuestionList(){
+
+    document.getElementById("start").style.display = "none";
+
+let html = `
+<div class="question-list-page" style="
+    background:white;
+    max-width:900px;
+    margin:20px auto;
+    padding:20px;
+    border-radius:15px;
+    text-align:left;
+">
+<h2>📚 問題一覧</h2>
+`;
+
+allQuizData.forEach((q,index)=>{
+
+    html += `
+    <div style="
+        margin-bottom:20px;
+        padding:10px;
+        border-bottom:1px solid #cccccc;
+    ">
+        <b>${index + 1}.</b><br><br>
+    `;
+
+    // 画像問題
+    if(q.image){
+        html += `
+            <img src="${q.image}"
+                 style="max-width:150px;width:100%;height:auto;">
+            <br><br>
+        `;
+    }
+
+    // 文章問題
+    if(q.question){
+        html += `${q.question}<br><br>`;
+    }
+
+    html += `
+        <span style="color:red;font-weight:bold;">
+            正解：${q.answer}
+        </span>
+        <br><br>
+    `;
+
+    if(q.choices){
+        html += q.choices.map(c => `・${c}`).join("<br>");
+    }
+
+    html += `</div>`;
+});
+
+    html += `
+        <button onclick="closeQuestionList()">
+            閉じる
+        </button>
+    </div>
+    `;
+
+    document.querySelector(".container").innerHTML = html;
+}
+
+function closeQuestionList(){
+    location.reload();
+}
 </script>
 
 </body>
