@@ -3,8 +3,24 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>ビルクリーニング</title>
-
+<title>特定技能ビルクリーニング試験対策｜無料問題集【ふりがな付き】</title>
+<meta name="description"
+content="特定技能ビルクリーニング分野の試験対策サイトです。やさしい日本語で清掃用具、作業手順、安全衛生、ホテル清掃を学習できます。外国人向け無料クイズ。">
+<meta name="keywords"
+content="
+特定技能,
+ビルクリーニング,
+外国人,
+技能評価試験,
+やさしい日本語,
+ふりがな,
+SSW,
+Specified Skilled Worker,
+Building Cleaning,
+Japanese Language Learning,
+Cleaning Test,
+Hotel Cleaning
+">
 <style>
 
 #questionText{
@@ -258,7 +274,28 @@ body {
     overflow-y:auto;     /* 縦スクロールは許可 */
 }
 
+.fall-emoji{
+    position:fixed;
+    top:-50px;
+    font-size:40px;
+    z-index:99999;
+    pointer-events:none;
+    animation:fallDown linear forwards;
+}
 
+@keyframes fallDown{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(calc(100vh + 100px))
+                  rotate(720deg);
+        opacity:0;
+    }
+}
 .bubble-background{
   position:fixed;
   top:0;
@@ -311,7 +348,24 @@ z-index:5;
   }
 }
 
+.intro-box{
+    max-width:800px;
+    margin:10px auto;
+    padding:10px;
 
+    background:rgba(255,255,255,0.9);
+    border-radius:20px;
+
+    border:3px solid #69dce9;
+
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+
+    font-size:10px;
+    line-height:2;
+    font-weight:bold;
+
+    color:#003366;
+}
 
 
 .random-btn:hover{
@@ -360,7 +414,28 @@ z-index:5;
     font-weight:bold;
     margin-bottom:10px;
 }
+.correct-effect{
+    position:fixed;
+    font-size:40px;
+    animation:pop 1s ease-out forwards;
+    pointer-events:none;
+    z-index:99999;
+}
 
+@keyframes pop{
+    0%{
+        transform:translateY(0) scale(0);
+        opacity:1;
+    }
+    50%{
+        transform:translateY(-50px) scale(1.5);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-100px) scale(2);
+        opacity:0;
+    }
+}
 /* ボタン */
 
   .container {
@@ -507,7 +582,23 @@ text-shadow:
 </section>
 
 <div class="bubble-background"></div>
-    <h1>ビルクリーニング問題</h1>
+    <h1>特定技能ビルクリーニング試験対策【無料問題集】</h1>
+<div class="intro-box">
+<p id="introText">
+🌏 外国人向けの特定技能ビルクリーニング試験対策サイトです。
+<br>
+📚 ふりがな付きのやさしい日本語で学習できます。
+<br>
+🧹 清掃用具・安全衛生・ホテル清掃・ベッドメイキングを無料で勉強できます。
+<br>
+🌏 This website helps foreign residents prepare for the Specified Skilled Worker (SSW) Building Cleaning Skills Test.
+<br>
+📚 Learn with easy Japanese and furigana support.
+<br>
+🧹 Study cleaning tools, workplace safety, hotel cleaning, and bed making for free.
+</p>
+</div>
+
     <div class="container">
 
 
@@ -536,21 +627,21 @@ text-shadow:
         閉じる
     </button>
 </div>
-    <h2>セットを選んでください</h2>
+    <h2>セットを<ruby>選<rt>えら</rt></ruby>んでください</h2>
 <br>
     <button id="start40" onclick="startQuiz(1)">
-        全問スタート
+        <ruby>全問<rt>ぜんもん</rt></ruby>スタート
     </button>
 
     <br>
 
     <button id="test30" class="random-btn" onclick="startQuiz(5)">
-        TEST✏30問
+        TEST✏30<ruby>問<rt>もん</rt></ruby>
     </button>
 <br>
     <button onclick="showQuestionList()">
 
-📚 問題一覧（こたえあり）
+📚 <ruby>問題一覧<rt>もんだいいちらん</rt></ruby>（こたえあり）
 
 </button>
 </div>
@@ -1941,6 +2032,7 @@ let wrongQuestions = {
 let reviewMode = false;
 
 function startQuiz(set){
+    document.getElementById("introText").style.display = "none";
     score = 0;
     miss = 0;
 
@@ -1989,7 +2081,7 @@ function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 function goHome(){
-
+document.getElementById("introText").style.display = "block";
     document.getElementById("start40").style.display = "inline-block";
     document.getElementById("test30").style.display = "inline-block";
 
@@ -2067,8 +2159,8 @@ const choices = q.choices
                 score++;
 
                 document.getElementById("result")
-                    .textContent = "〇 正解！";
-
+                    .textContent = "🎉 正解！";
+showCorrectEffect();
             }else{
 
                 miss++;
@@ -2118,6 +2210,32 @@ function goNextSet(){
     document.getElementById("nextSet").style.display = "none";
 
     loadQuiz();
+}
+function showCorrectEffect(){
+
+    const marks = ["🔶","✨","🤩","⭐","🔷","💚","💜"];
+
+    for(let i = 0; i < 50; i++){
+
+        const emoji = document.createElement("div");
+
+        emoji.className = "fall-emoji";
+
+        emoji.textContent =
+            marks[Math.floor(Math.random() * marks.length)];
+
+        emoji.style.left =
+            Math.random() * window.innerWidth + "px";
+
+        emoji.style.animationDuration =
+            (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+            emoji.remove();
+        }, 4000);
+    }
 }
 function nextQuestion(){
 
