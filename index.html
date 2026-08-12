@@ -502,6 +502,30 @@ text-shadow:
      1px  1px 0 rgb(61, 41, 153);
 
 }
+
+.floating-close-btn{
+    position:fixed;
+    top:100px;
+    right:20px;
+    z-index:99999;
+
+    width:auto;
+    min-height:auto;
+    padding:12px 20px;
+
+    background:linear-gradient(45deg,#ff5252,#ff1744);
+    color:white;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+
+.floating-close-btn:hover{
+    transform:scale(1.05);
+}
 @media (max-width:768px){
 
     body{
@@ -558,6 +582,15 @@ text-shadow:
     rt{
         font-size:0.5em;
     }
+
+
+    .floating-close-btn{
+        top:80px;
+        right:10px;
+        font-size:16px;
+        padding:10px 16px;
+    }
+
 }
 </style>
 
@@ -624,7 +657,7 @@ text-shadow:
     <br>
 
     <button onclick="closeQuestionList()">
-        閉じる
+        <ruby>閉<rt>と</rt></ruby>じる
     </button>
 </div>
     <h2>セットを<ruby>選<rt>えら</rt></ruby>んでください</h2>
@@ -636,7 +669,6 @@ text-shadow:
     <button id="test30" class="random-btn" onclick="startQuiz(5)">
         TEST✏30<ruby>問<rt>もん</rt></ruby>
     </button>
-
     <button onclick="showQuestionList()">
 
 📚 <ruby>問題一覧<rt>もんだいいちらん</rt></ruby>（こたえあり）
@@ -2388,12 +2420,14 @@ allQuizData.forEach((q,index)=>{
     html += `</div>`;
 });
 
-    html += `
-        <button onclick="closeQuestionList()">
-            閉じる
-        </button>
-    </div>
-    `;
+html += `
+    <butto←
+        class="floating-close-btn"
+        onclick="closeQuestionList()">
+        ← もどる
+    </button>
+</div>
+`;
 
     document.querySelector(".container").innerHTML = html;
 }
