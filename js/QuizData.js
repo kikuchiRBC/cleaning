@@ -2204,4 +2204,148 @@ choices:[
         "D"
     ]
 },
+{type: "text",
+    question:"<ruby>床<rt>ゆか</rt></ruby>がぬれているときは、どの<ruby>道具<rt>どうぐ</rt></ruby>をつかうのが<ruby>一番大切<rt>いちばんたいせつ</rt></ruby>ですか。",
+    image:"images/tool101.png",
+    answer:"A",
+    choices:[
+        "A",
+        "B",
+        "C",
+        "D"
+    ]
+},
+{type: "text",
+    question:"モップを使うときは、どの<ruby>道具<rt>どうぐ</rt></ruby>とつかいますか。",
+    image:"images/tool102.png",
+    answer:"D",
+    choices:[
+        "A",
+        "B",
+        "C",
+        "D"
+    ]
+},
+{
+    type: "text",
+    question: "窓ガラスをスクイジーで<ruby>清掃<rt>せいそう</rt></ruby>するとき、<ruby>拭<rt>ふ</rt></ruby>き<ruby>残<rt>のこ</rt></ruby>しを<ruby>防<rt>ふせ</rt></ruby>ぐために、スクイジーはどのくらい<ruby>重<rt>かさ</rt></ruby>ねて<ruby>作業<rt>さぎょう</rt></ruby>しますか。",
+    answer: "スクイジー<ruby>幅<rt>はば</rt></ruby>の4<ruby>分<rt>ぶん</rt></ruby>の1",
+    choices: [
+        "スクイジー<ruby>幅<rt>はば</rt></ruby>の10<ruby>分<rt>ぶん</rt></ruby>の1",
+        "スクイジー<ruby>幅<rt>はば</rt></ruby>の4<ruby>分<rt>ぶん</rt></ruby>の1",
+        "スクイジー<ruby>幅<rt>はば</rt></ruby>と<ruby>同<rt>おな</rt></ruby>じ<ruby>長<rt>なが</rt></ruby>さ",
+        "<ruby>重<rt>かさ</rt></ruby>ねない"
+    ]
+},{
+    type: "text",
+    question: "スクイジーで<ruby>窓<rt>まど</rt></ruby>ガラスを<ruby>上<rt>うえ</rt></ruby>から<ruby>下<rt>した</rt></ruby>へ<ruby>作業<rt>さぎょう</rt></ruby>するとき、ガラスの<ruby>下端<rt>かたん</rt></ruby>は<ruby>何cm<rt>なんセンチ</rt></ruby>くらい<ruby>残<rt>のこ</rt></ruby>しますか。",
+    answer: "20cm",
+    choices: [
+        "20cm",
+        "3cm",
+        "5cm",
+        "10cm"
+    ]
+},
+{type: "text",
+    question:"スクイジーを横に<ruby>引<rt>ひ</rt></ruby>くとき、○cm<ruby>残<rt>のこ</rt></ruby>しますか",
+    image:"images/tool103.png",
+    answer:"20cm",
+    choices: [
+        "20cm",
+        "3cm",
+        "5cm",
+        "10cm"
+    ]
+},
+{
+    type: "text",
+    question: "窓ガラスをスクイジーで<ruby>清掃<rt>せいそう</rt></ruby>するとき、<ruby>拭<rt>ふ</rt></ruby>き<ruby>残<rt>のこ</rt></ruby>しを<ruby>防<rt>ふせ</rt></ruby>ぐために、スクイジーはどのくらい<ruby>重<rt>かさ</rt></ruby>ねて<ruby>作業<rt>さぎょう</rt></ruby>しますか。",
+    image:"images/tool104.png",
+    answer: "1/4",
+    choices: [
+        "1/2",
+        "1/3",
+        "1/4",
+        "<ruby>重<rt>かさ</rt></ruby>ねない"
+    ]
+},
+{
+    type: "text",
+    question: "スクイジーで<ruby>窓<rt>まど</rt></ruby>ガラスを<ruby>上<rt>うえ</rt></ruby>から<ruby>下<rt>した</rt></ruby>へ<ruby>作業<rt>さぎょう</rt></ruby>するとき、ガラスの<ruby>下端<rt>かたん</rt></ruby>は<ruby>何cm<rt>なんセンチ</rt></ruby>くらい<ruby>残<rt>のこ</rt></ruby>しますか。",
+    image:"images/tool104.png",
+    answer: "20cm",
+    choices: [
+        "20cm",
+        "3cm",
+        "5cm",
+        "10cm"
+    ]
+},
+{
+    type: "text",
+    question: "<ruby>窓<rt>まど</rt></ruby>ガラスの<ruby>清掃<rt>せいそう</rt></ruby>のとき、ABCDのなにからはじめますか。",
+    image:"images/tool105.png",
+    answer: "A",
+    choices: [
+        "A",
+        "B",
+        "C",
+        "D"
+    ]
+},
+{
+  "type": "text",
+  "question": "毛かきを使う際の注意点として正しいものはどれですか。",
+  "answer": "毛かきは<ruby>低<rt>ひく</rt></ruby>い<ruby>位置<rt>いち</rt></ruby>で<ruby>使<rt>つか</rt></ruby>い、<ruby>毛先<rt>けさき</rt></ruby>のほこりを<ruby>周囲<rt>しゅうい</rt></ruby>に<ruby>飛<rt>と</rt></ruby>ばさない",
+  "choices": [
+    "毛かきを<ruby>高<rt>たか</rt></ruby>い<ruby>位置<rt>いち</rt></ruby>で<ruby>使<rt>つか</rt></ruby>い、<ruby>広<rt>ひろ</rt></ruby>い<ruby>範囲<rt>はんい</rt></ruby>のほこりを<ruby>落<rt>お</rt></ruby>とす",
+    "毛かきは<ruby>低<rt>ひく</rt></ruby>い<ruby>位置<rt>いち</rt></ruby>で<ruby>使<rt>つか</rt></ruby>い、<ruby>毛先<rt>けさき</rt></ruby>のほこりを<ruby>周囲<rt>しゅうい</rt></ruby>に<ruby>飛<rt>と</rt></ruby>ばさない",
+    "<ruby>毛先<rt>けさき</rt></ruby>のほこりを<ruby>振<rt>ふ</rt></ruby>り<ruby>払<rt>はら</rt></ruby>って<ruby>周囲<rt>しゅうい</rt></ruby>に<ruby>飛<rt>と</rt></ruby>ばす",
+    "毛かきを<ruby>勢<rt>いきお</rt></ruby>いよく<ruby>動<rt>うご</rt></ruby>かして<ruby>掃除<rt>そうじ</rt></ruby>する"
+  ]
+},
+{
+    type: "text",
+    question: "ほうきを使う際、どちらがただしいですか？",
+    image:"images/tool106.png",
+    answer: "B",
+    choices: [
+        "A","B"
+    ]
+},
+{
+    type: "text",
+    question: "シャンパーを使う際、どこからはじめますか。",
+    image:"images/tool107.png",
+    answer: "A",
+    choices: ["A","B","C"
+    ]
+},{
+  "type": "text",
+  "question": "乾式モップの<ruby>柄<rt>え</rt></ruby>の<ruby>長<rt>なが</rt></ruby>さは、どのくらいにしますか。",
+  "answer": "モップを<ruby>立<rt>た</rt></ruby>てたときに<ruby>柄<rt>え</rt></ruby>の<ruby>先端<rt>せんたん</rt></ruby>があごから<ruby>鼻<rt>はな</rt></ruby>の<ruby>高<rt>たか</rt></ruby>さになる<ruby>長<rt>なが</rt></ruby>さ",
+  "choices": [
+    "モップを<ruby>立<rt>た</rt></ruby>てたときに<ruby>柄<rt>え</rt></ruby>の<ruby>先端<rt>せんたん</rt></ruby>が<ruby>胸<rt>むね</rt></ruby>の<ruby>高<rt>たか</rt></ruby>さになる<ruby>長<rt>なが</rt></ruby>さ",
+    "モップを<ruby>立<rt>た</rt></ruby>てたときに<ruby>柄<rt>え</rt></ruby>の<ruby>先端<rt>せんたん</rt></ruby>があごから<ruby>鼻<rt>はな</rt></ruby>の<ruby>高<rt>たか</rt></ruby>さになる<ruby>長<rt>なが</rt></ruby>さ",
+    "モップを<ruby>立<rt>た</rt></ruby>てたときに<ruby>柄<rt>え</rt></ruby>の<ruby>先端<rt>せんたん</rt></ruby>が<ruby>頭<rt>あたま</rt></ruby>より<ruby>高<rt>たか</rt></ruby>くなる<ruby>長<rt>なが</rt></ruby>さ",
+    "<ruby>柄<rt>え</rt></ruby>の<ruby>長<rt>なが</rt></ruby>さは<ruby>関係<rt>かんけい</rt></ruby>ない"
+  ]
+},
+{
+    type: "text",
+    question: "この<ruby>部屋<rt>へや</rt></ruby>でポリッシャーをかける<ruby>場合<rt>ばあい</rt></ruby>、どこから<ruby>作業<rt>さぎょう</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めますか。",
+    image:"images/tool108.png",
+    answer: "A",
+    choices: ["A","B","C","D"
+    ]
+},
+{
+    type: "text",
+    question: "ポリッシャーをかける<ruby>場合<rt>ばあい</rt></ruby>、パッド<ruby>幅<rt>はば</rt></ruby>はどのくらい<ruby>重<rt>かさ</rt></ruby>ねますか。",
+    image:"images/tool109.png",
+    answer: "1/3",
+    choices: ["1/3","1/2","1/4","1/5"
+    ]
+},
 ];
