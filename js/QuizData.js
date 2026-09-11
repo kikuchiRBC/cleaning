@@ -2348,4 +2348,174 @@ choices:[
     choices: ["1/3","1/2","1/4","1/5"
     ]
 },
+
+{
+  "question": "<ruby>中性洗剤<rt>ちゅうせいせんざい</rt></ruby>が<ruby>適<rt>てき</rt></ruby>している<ruby>汚<rt>よご</rt></ruby>れはどれですか。",
+  "choices": [
+    "<ruby>浴室<rt>よくしつ</rt></ruby>の<ruby>水<rt>みず</rt></ruby>あか",
+    "トイレの<ruby>尿石<rt>にょうせき</rt></ruby>",
+    "<ruby>日常的<rt>にちじょうてき</rt></ruby>なほこりや<ruby>軽<rt>かる</rt></ruby>い<ruby>汚<rt>よご</rt></ruby>れ",
+    "<ruby>換気扇<rt>かんきせん</rt></ruby>の<ruby>頑固<rt>がんこ</rt></ruby>な<ruby>油汚<rt>あぶらよご</rt></ruby>れ"
+  ],
+  "answer": "<ruby>日常的<rt>にちじょうてき</rt></ruby>なほこりや<ruby>軽<rt>かる</rt></ruby>い<ruby>汚<rt>よご</rt></ruby>れ"
+},{
+  "question": "アルカリ<ruby>性洗剤<rt>せいせんざい</rt></ruby>が<ruby>適<rt>てき</rt></ruby>している<ruby>汚<rt>よご</rt></ruby>れはどれですか。",
+  "choices": [
+    "<ruby>水<rt>みず</rt></ruby>あか",
+    "<ruby>尿石<rt>にょうせき</rt></ruby>",
+    "<ruby>油汚<rt>あぶらよご</rt></ruby>れ・<ruby>手<rt>て</rt></ruby>あか・<ruby>皮脂汚<rt>ひしよご</rt></ruby>れ",
+    "さび"
+  ],
+  "answer": "<ruby>油汚<rt>あぶらよご</rt></ruby>れ・<ruby>手<rt>て</rt></ruby>あか・<ruby>皮脂汚<rt>ひしよご</rt></ruby>れ"
+},{
+  "question": "<ruby>酸性洗剤<rt>さんせいせんざい</rt></ruby>が<ruby>適<rt>てき</rt></ruby>している<ruby>汚<rt>よご</rt></ruby>れはどれですか。",
+  "choices": [
+    "<ruby>油汚<rt>あぶらよご</rt></ruby>れ",
+    "<ruby>水<rt>みず</rt></ruby>あか・<ruby>尿石<rt>にょうせき</rt></ruby>",
+    "ほこり",
+    "<ruby>泥汚<rt>どろよご</rt></ruby>れ"
+  ],
+  "answer": "<ruby>水<rt>みず</rt></ruby>あか・<ruby>尿石<rt>にょうせき</rt></ruby>"
+},
+{
+  "question": "モップは、<ruby>汚<rt>よご</rt></ruby>れたらそのまま使い続けてもよい。",
+  "choices": [
+    "〇",  "×"
+  ],
+  "answer": "×"
+},{
+  "question": "<ruby>床<rt>ゆか</rt></ruby>を<ruby>清掃<rt>せいそう</rt></ruby>するとき、<ruby>作業場所<rt>さぎょうばしょ</rt></ruby>に「<ruby>清掃中<rt>せいそうちゅう</rt></ruby>」などの<ruby>表示<rt>ひょうじ</rt></ruby>をする<ruby>目的<rt>もくてき</rt></ruby>は<ruby>何<rt>なに</rt></ruby>ですか。",
+  "choices": [
+    "<ruby>清掃用具<rt>せいそうようぐ</rt></ruby>の<ruby>置<rt>お</rt></ruby>き<ruby>場所<rt>ばしょ</rt></ruby>を<ruby>示<rt>しめ</rt></ruby>すため",
+    "<ruby>作業者<rt>さぎょうしゃ</rt></ruby>の<ruby>名前<rt>なまえ</rt></ruby>を<ruby>知<rt>し</rt></ruby>らせるため",
+    "<ruby>通行者<rt>つうこうしゃ</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>を<ruby>促<rt>うなが</rt></ruby>し、<ruby>転倒<rt>てんとう</rt></ruby>などの<ruby>事故<rt>じこ</rt></ruby>を<ruby>防<rt>ふせ</rt></ruby>ぐため",
+    "<ruby>清掃作業<rt>せいそうさぎょう</rt></ruby>を<ruby>早<rt>はや</rt></ruby>く<ruby>終<rt>お</rt></ruby>わらせるため"
+  ],
+  "answer": "<ruby>通行者<rt>つうこうしゃ</rt></ruby>に<ruby>注意<rt>ちゅうい</rt></ruby>を<ruby>促<rt>うなが</rt></ruby>し、<ruby>転倒<rt>てんとう</rt></ruby>などの<ruby>事故<rt>じこ</rt></ruby>を<ruby>防<rt>ふせ</rt></ruby>ぐため"
+},
+{
+  "question": "ベッドメイクについて、正<ruby>しい<rt>ただしい</rt></ruby>ものはどれですか。",
+  "choices": [
+    "シーツに<ruby>汚<rt>よご</rt></ruby>れがあってもそのまま<ruby>使用<rt>しよう</rt></ruby>する",
+    "シーツに<ruby>汚<rt>よご</rt></ruby>れがあれば<ruby>交換<rt>こうかん</rt></ruby>する",
+    "シーツはしわがあってもそのままでよい",
+    "<ruby>使用後<rt>しようご</rt></ruby>のシーツは<ruby>床<rt>ゆか</rt></ruby>に<ruby>置<rt>お</rt></ruby>いてよい"
+  ],
+  "answer": "シーツに<ruby>汚<rt>よご</rt></ruby>れがあれば<ruby>交換<rt>こうかん</rt></ruby>する"
+},
+{
+  "question": "ガラスの<ruby>汚<rt>よご</rt></ruby>れがひどいとき、ガラスクリーナーはどのように<ruby>使<rt>つか</rt></ruby>いますか。",
+  "choices": [
+    "タオルを<ruby>使<rt>つか</rt></ruby>わずに<ruby>手<rt>て</rt></ruby>で<ruby>広<rt>ひろ</rt></ruby>げる",
+    "ガラスに<ruby>直接<rt>ちょくせつ</rt></ruby><ruby>吹<rt>ふ</rt></ruby>き<ruby>付<rt>つ</rt></ruby>けて<ruby>拭<rt>ふ</rt></ruby>く",
+    "<ruby>床<rt>ゆか</rt></ruby>に<ruby>吹<rt>ふ</rt></ruby>き<ruby>付<rt>つ</rt></ruby>けてから<ruby>使<rt>つか</rt></ruby>う",
+    "<ruby>水<rt>みず</rt></ruby>だけで<ruby>拭<rt>ふ</rt></ruby>く"
+  ],
+  "answer": "ガラスに<ruby>直接<rt>ちょくせつ</rt></ruby><ruby>吹<rt>ふ</rt></ruby>き<ruby>付<rt>つ</rt></ruby>けて<ruby>拭<rt>ふ</rt></ruby>く"
+},{
+  "question": "<ruby>普段<rt>ふだん</rt></ruby>のガラス<ruby>清掃<rt>せいそう</rt></ruby>では、ガラスクリーナーをどこにつけてから<ruby>拭<rt>ふ</rt></ruby>きますか。",
+  "choices": [
+    "ガラス",
+    "<ruby>床<rt>ゆか</rt></ruby>",
+    "タオル",
+    "<ruby>窓<rt>まど</rt></ruby>わく"
+  ],
+  "answer": "タオル"
+},
+{
+  "question": "ガラスにフレームがある場合、角（かど）の汚（よご）れを取り除（のぞ）くために使（つか）う指（ゆび）はどれですか。",
+  "choices": [
+    "親指（おやゆび）",
+    "人差し指（ひとさしゆび）",
+    "中指（なかゆび）",
+    "小指（こゆび）"
+  ],
+  "answer": "中指（なかゆび）"
+},
+{
+  "question": "フレームのあるガラスを清掃（せいそう）するとき、角（かど）の汚（よご）れはどうしますか。",
+  "choices": [
+    "そのまま残す",
+    "水をかけるだけにする",
+    "中指を使って拭き取る",
+    "道具を使わず手でこする"
+  ],
+  "answer": "中指を使って拭き取る"
+},
+{
+  "question": "トイレ<ruby>清掃<rt>せいそう</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めるとき、<ruby>最初<rt>さいしょ</rt></ruby>に<ruby>行<rt>おこな</rt></ruby>うことはどれですか。",
+  "choices": [
+    "<ruby>便器<rt>べんき</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>う",
+    "<ruby>床<rt>ゆか</rt></ruby>を<ruby>拭<rt>ふ</rt></ruby>く",
+    "「<ruby>清掃中<rt>せいそうちゅう</rt></ruby>」の<ruby>表示<rt>ひょうじ</rt></ruby>をする",
+    "<ruby>鏡<rt>かがみ</rt></ruby>を<ruby>拭<rt>ふ</rt></ruby>く"
+  ],
+  "answer": "「<ruby>清掃中<rt>せいそうちゅう</rt></ruby>」の<ruby>表示<rt>ひょうじ</rt></ruby>をする"
+},
+{
+  "question": "<ruby>部屋<rt>へや</rt></ruby>や<ruby>廊下<rt>ろうか</rt></ruby>の<ruby>清掃<rt>せいそう</rt></ruby>をするとき、どこから<ruby>掃除<rt>そうじ</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めますか。",
+  "choices": [
+    "<ruby>床<rt>ゆか</rt></ruby>から<ruby>掃除<rt>そうじ</rt></ruby>する",
+    "<ruby>出入口<rt>でいりぐち</rt></ruby>から<ruby>掃除<rt>そうじ</rt></ruby>する",
+    "<ruby>高所<rt>こうしょ</rt></ruby>のホコリを<ruby>除去<rt>じょきょ</rt></ruby>する",
+    "<ruby>壁<rt>かべ</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>する"
+  ],
+  "answer": "<ruby>高所<rt>こうしょ</rt></ruby>のホコリを<ruby>除去<rt>じょきょ</rt></ruby>する"
+},
+{
+  "question": "<ruby>小便器<rt>しょうべんき</rt></ruby>の<ruby>清掃<rt>せいそう</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めるとき、<ruby>最初<rt>さいしょ</rt></ruby>に<ruby>行<rt>おこな</rt></ruby>うことはどれですか。",
+  "choices": [
+    "<ruby>洗剤<rt>せんざい</rt></ruby>をかける",
+    "<ruby>人感<rt>じんかん</rt></ruby>センサーをタオルで<ruby>覆<rt>おお</rt></ruby>ってから<ruby>作業<rt>さぎょう</rt></ruby>を<ruby>開始<rt>かいし</rt></ruby>する",
+    "<ruby>床<rt>ゆか</rt></ruby>を<ruby>拭<rt>ふ</rt></ruby>く",
+    "<ruby>仕上<rt>しあ</rt></ruby>げ<ruby>拭<rt>ぶ</rt></ruby>きをする"
+  ],
+  "answer": "<ruby>人感<rt>じんかん</rt></ruby>センサーをタオルで<ruby>覆<rt>おお</rt></ruby>ってから<ruby>作業<rt>さぎょう</rt></ruby>を<ruby>開始<rt>かいし</rt></ruby>する"
+},
+{
+  "question": "ポリッシャーのパッドが<ruby>右<rt>みぎ</rt></ruby>に<ruby>進<rt>すす</rt></ruby>んだとき、ハンドルはどうしますか。",
+  "choices": [
+    "<ruby>少<rt>すこ</rt></ruby>し<ruby>上<rt>あ</rt></ruby>げる",
+    "<ruby>少<rt>すこ</rt></ruby>し<ruby>下<rt>さ</rt></ruby>げる",
+    "<ruby>強<rt>つよ</rt></ruby>く<ruby>押<rt>お</rt></ruby>す",
+    "そのままにする"
+  ],
+  "answer": "<ruby>少<rt>すこ</rt></ruby>し<ruby>上<rt>あ</rt></ruby>げる"
+},{
+  "question": "ポリッシャーのパッドが<ruby>左<rt>ひだり</rt></ruby>に<ruby>進<rt>すす</rt></ruby>んだとき、ハンドルはどうしますか。",
+  "choices": [
+    "<ruby>少<rt>すこ</rt></ruby>し<ruby>上<rt>あ</rt></ruby>げる",
+    "<ruby>少<rt>すこ</rt></ruby>し<ruby>下<rt>さ</rt></ruby>げる",
+    "<ruby>電源<rt>でんげん</rt></ruby>を<ruby>切<rt>き</rt></ruby>る",
+    "タイヤを<ruby>上<rt>あ</rt></ruby>げる"
+  ],
+  "answer": "<ruby>少<rt>すこ</rt></ruby>し<ruby>下<rt>さ</rt></ruby>げる"
+},{
+  "question": "ポリッシャーで<ruby>床<rt>ゆか</rt></ruby>を<ruby>清掃<rt>せいそう</rt></ruby>するとき、パッドはどのように<ruby>調整<rt>ちょうせい</rt></ruby>しますか。",
+  "choices": [
+    "パッドの<ruby>一部<rt>いちぶ</rt></ruby>だけに<ruby>圧<rt>あつ</rt></ruby>をかける",
+    "パッドを<ruby>水平<rt>すいへい</rt></ruby>にする",
+    "パッドを<ruby>斜<rt>なな</rt></ruby>めにする",
+    "パッドを<ruby>浮<rt>う</rt></ruby>かせる"
+  ],
+  "answer": "パッドを<ruby>水平<rt>すいへい</rt></ruby>にする"
+},
+{
+    type: "text",
+    question: "この<ruby>部屋<rt>へや</rt></ruby>でポリッシャーをかける<ruby>場合<rt>ばあい</rt></ruby>、どこから<ruby>作業<rt>さぎょう</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めますか。",
+    image:"images/tool108.png",
+    answer: "A",
+    choices: ["A","B","C","D"
+    ]
+},{
+  "question": "<ruby>洗面台<rt>せんめんだい</rt></ruby>で、<ruby>汚<rt>よご</rt></ruby>れがたまりやすい<ruby>場所<rt>ばしょ</rt></ruby>の<ruby>組<rt>く</rt></ruby>み<ruby>合<rt>あ</rt></ruby>わせはどれですか。",
+   image:"images/tool110.png",
+  "choices": [
+    "①と④",
+    "①と③",
+    "②と③",
+    "②と④"
+  ],
+  "answer": "①と④"
+}
 ];
