@@ -1730,16 +1730,7 @@ choices:[
 "<ruby>洗剤<rt>せんざい</rt></ruby>をつける",
 "<ruby>掃除機<rt>そうじき</rt></ruby>をかける"
 ]},
-{
-type:"text",
-  image: "images/tool74.png",
-answer:"C→B→A→D",
-choices:[
-"A→B→C→D",
-"A→C→B→D",
-"C→B→A→D",
-"C→B→D→A"
-]},
+
 {
 type:"text",
 "question": "<ruby>希釈率</ruby><rt>きしゃくりつ</rt>とはなんですか。",
@@ -1784,45 +1775,8 @@ choices:[
 "<ruby>強<rt>つよ</rt></ruby>い<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>使<rt>つか</rt></ruby>わない",
 "<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>ける"
 ]
-},{
-type:"text",
-  image: "images/tool75.png",
-answer:"ガラス",
-choices:[
-"ぬれた<ruby>床<rt>ゆか</rt></ruby>",
-"かわいた<ruby>床<rt>ゆか</rt></ruby>",
-"ガラス",
-"<ruby>階段<rt>かいだん</rt></ruby>"
-]},
-{
-type:"text",
-  image: "images/tool76.png",
-answer:"<ruby>床面清掃<rt>ゆかめんせいそう</rt></ruby>",
-choices:[
-"<ruby>床面清掃<rt>ゆかめんせいそう</rt></ruby>",
-"トイレ",
-"ガラス",
-"<ruby>階段<rt>かいだん</rt></ruby>"
-]},
-{
-type:"text",
-  image: "images/tool77.png",
-answer:"トイレ",
-choices:[
-"ぬれた<ruby>床<rt>ゆか</rt></ruby>",
-"かわいた<ruby>床<rt>ゆか</rt></ruby>",
-"ガラス",
-"トイレ"
-]},{
-type:"text",
-  image: "images/tool78.png",
-answer:"ぬれた<ruby>床<rt>ゆか</rt></ruby>",
-choices:[
-"ぬれた<ruby>床<rt>ゆか</rt></ruby>",
-"かわいた<ruby>床<rt>ゆか</rt></ruby>",
-"ガラス",
-"トイレ"
-]},
+},
+
 {
 type:"text",
   image: "images/tool79.png",
@@ -1883,6 +1837,7 @@ choices:[
 {
 type:"text",
   image: "images/tool80.png",
+   question:"このゴミはなんですか",
 answer:"ほこり（<ruby>土、綿<rt>つち、わた</rt></ruby>）",
 choices:[
 "ほこり（<ruby>土、綿<rt>つち、わた</rt></ruby>）",
@@ -1893,6 +1848,7 @@ choices:[
 {
 type:"text",
   image: "images/tool81.png",
+  question:"このゴミはなんですか",
 answer:"（<ruby>灰（吸殻など）<rt>はい　すいがら</rt></ruby>）",
 choices:[
 "ほこり（<ruby>土、綿<rt>つち、わた</rt></ruby>）",
@@ -1902,6 +1858,7 @@ choices:[
 ]},
 {
 type:"text",
+question:"この<ruby>汚<rt>よご</rt></ruby>れの<ruby>性質<rt>せいしつ</rt></ruby>はなんですか",
   image: "images/tool82.png",
 answer:"<ruby>水溶性<rt>すいようせい</rt></ruby>",
 choices:[
@@ -1913,6 +1870,7 @@ choices:[
 {
 type:"text",
   image: "images/tool83.png",
+  question:"この<ruby>汚<rt>よご</rt></ruby>れの<ruby>性質<rt>せいしつ</rt></ruby>はなんですか",
 answer:"<ruby>油溶性<rt>ゆようせい</rt></ruby>",
 choices:[
 "<ruby>水溶性<rt>すいようせい</rt></ruby>",
@@ -1923,6 +1881,7 @@ choices:[
 {
 type:"text",
   image: "images/tool84.png",
+  question:"この<ruby>汚<rt>よご</rt></ruby>れの<ruby>性質<rt>せいしつ</rt></ruby>はなんですか",
 answer:"<ruby>油溶性<rt>ゆようせい</rt></ruby>",
 choices:[
 "<ruby>水溶性<rt>すいようせい</rt></ruby>",
@@ -1933,6 +1892,7 @@ choices:[
 {
 type:"text",
   image: "images/tool85.png",
+  question:"この<ruby>汚<rt>よご</rt></ruby>れの<ruby>性質<rt>せいしつ</rt></ruby>はなんですか",
 answer:"<ruby>感染性の汚れ<rt>かんせいせいのよごれ</rt></ruby>",
 choices:[
 "<ruby>水溶性<rt>すいようせい</rt></ruby>",
@@ -1943,6 +1903,7 @@ choices:[
 {
 type:"text",
   image: "images/tool86.png",
+    question:"この<ruby>汚<rt>よご</rt></ruby>れはなんですか",
 answer:"ひやけ",
 choices:[
 "ひやけ",
@@ -1953,6 +1914,7 @@ choices:[
 {
 type:"text",
   image: "images/tool87.png",
+    question:"この<ruby>汚<rt>よご</rt></ruby>れはなんですか",
 answer:"サビ",
 choices:[
 "ひやけ",
@@ -1963,6 +1925,7 @@ choices:[
 {
 type:"text",
   image: "images/tool88.png",
+   question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -1973,6 +1936,7 @@ choices:[
 {
 type:"text",
   image: "images/tool89.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -1983,6 +1947,7 @@ choices:[
 {
 type:"text",
   image: "images/tool90.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -1993,6 +1958,7 @@ choices:[
 {
 type:"text",
   image: "images/tool91.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>硬性床材<rt>こうせいゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -2003,6 +1969,7 @@ choices:[
 {
 type:"text",
   image: "images/tool92.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>硬性床材<rt>こうせいゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -2013,6 +1980,7 @@ choices:[
 {
 type:"text",
   image: "images/tool93.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>硬性床材<rt>こうせいゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -2023,6 +1991,7 @@ choices:[
 {
 type:"text",
   image: "images/tool94.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>木質床材<rt>もくしつゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -2033,6 +2002,7 @@ choices:[
 {
 type:"text",
   image: "images/tool95.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"<ruby>木質床材<rt>もくしつゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -2043,6 +2013,7 @@ choices:[
 {
 type:"text",
   image: "images/tool96.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"カーペット<ruby>床材<rt>ゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -2053,6 +2024,7 @@ choices:[
 {
 type:"text",
   image: "images/tool97.png",
+  question:"この<ruby>床<rt>ゆか</rt></ruby>の<ruby>材質<rt>ざいしつ</rt></ruby>はなんですか",
 answer:"カーペット<ruby>床材<rt>ゆかざい</rt></ruby>",
 choices:[
 "<ruby>弾性床材<rt>だんせいゆかざい</rt></ruby>",
@@ -2252,10 +2224,7 @@ choices:[
     image:"images/tool103.png",
     answer:"20cm",
     choices: [
-        "20cm",
-        "3cm",
-        "5cm",
-        "10cm"
+        "20cm", "3cm","5cm","10cm"
     ]
 },
 {
@@ -2517,5 +2486,5 @@ choices:[
     "②と④"
   ],
   "answer": "①と④"
-}
+},
 ];
