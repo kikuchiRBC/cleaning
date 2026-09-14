@@ -682,6 +682,9 @@ text-shadow:
       
 🧹 2択クイズ○×<ruby>全問<rt>ぜんもん</rt></ruby>スタート
 </button>
+<button onclick="startQuizData2Test()">
+📝 2択クイズ TEST30問
+</button>
 <button onclick="showQuestionListOX()">
 📚 2択クイズ○×<ruby>問題一覧<rt>もんだいいちらん</rt></ruby>（こたえあり）
 </button>
@@ -709,7 +712,7 @@ text-shadow:
 <script src="js/QuizData1.js"></script>
 <script>
     
-
+let oxTestMode = false;
 function makeChoices(correct){
 
     let choices = [correct.answer];
@@ -762,7 +765,35 @@ let wrongQuestions = {
     5: []
 };
 let reviewMode = false;
+function startQuizData2Test(){
 
+    currentQuizData = quizData2;
+
+    score = 0;
+    miss = 0;
+
+    document.getElementById("score").textContent = "0";
+    document.getElementById("miss").textContent = "0";
+
+    document.getElementById("start").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+    quizData = [...currentQuizData];
+
+    for(let i = quizData.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [quizData[i], quizData[j]] = [quizData[j], quizData[i]];
+    }
+
+    // 30問だけ抽出
+    quizData = quizData.slice(0,30);
+
+    oxTestMode = true;
+
+    current = 0;
+
+    loadQuiz();
+}
 function startQuiz(set){
     document.getElementById("introText").style.display = "none";
     score = 0;
@@ -915,7 +946,7 @@ document.getElementById("introText").style.display = "block";
 
     document.getElementById("quiz").style.display = "none";
     document.getElementById("start").style.display = "block";
-
+oxTestMode = false;
     current = 0;
     currentSet = 1;
     reviewMode = false;
@@ -976,38 +1007,41 @@ const choices = q.choices
 
         btn.innerHTML = choice;
 
-        btn.onclick = function(){
+btn.onclick = function(){
 
-            if(choice === q.answer){
+    let selected =
+        choice.startsWith("A") ? "A" :
+        choice.startsWith("B") ? "B" :
+        choice;
 
-                score++;
+    if(selected === q.answer){
 
-                document.getElementById("result")
-                    .textContent = "🎉 正解！";
-showCorrectEffect();
-            }else{
+        score++;
 
-                miss++;
+        document.getElementById("result")
+            .textContent = "🎉 正解！";
 
-                document.getElementById("result")
-                    .innerHTML =
-                    "× 不正解！ 正解は「" +
-                    q.answer + "」";
-            }
+        showCorrectEffect();
 
-            document.getElementById("score")
-                .textContent = score;
+    }else{
 
-            document.getElementById("miss")
-                .textContent = miss;
+        miss++;
 
-            document
-            .querySelectorAll("#choices button")
-            .forEach(b => b.disabled = true);
+        document.getElementById("result")
+            .innerHTML =
+            "× 不正解！ 正解は「" +
+            q.answer + "」";
+    }
 
-            document.getElementById("next")
-                .style.display="inline-block";
-        };
+    document.getElementById("score").textContent = score;
+    document.getElementById("miss").textContent = miss;
+
+    document
+        .querySelectorAll("#choices button")
+        .forEach(b => b.disabled = true);
+
+    document.getElementById("next").style.display = "inline-block";
+};
 
         area.appendChild(btn);
     });
@@ -1081,7 +1115,36 @@ function nextQuestion(){
 
             return;
         }
+if(oxTestMode){
 
+    document.getElementById("choices").innerHTML = "";
+
+    document.getElementById("result").innerHTML =
+        "🏆 2択クイズ30問終了！<br>" +
+        "30点中 " + score + " 点でした。";
+
+    document.getElementById("next").style.display = "none";
+    document.getElementById("nextSet").style.display = "none";
+
+    oxTestMode = false;
+
+    return;
+}
+if(oxTestMode){
+
+    document.getElementById("choices").innerHTML = "";
+
+    document.getElementById("result").innerHTML =
+        "🏆 2択クイズ30問終了！<br>" +
+        "30点中 " + score + " 点でした。";
+
+    document.getElementById("next").style.display = "none";
+    document.getElementById("nextSet").style.display = "none";
+
+    oxTestMode = false;
+
+    return;
+}
 // ランダム30問は復習なし
 if(currentSet == 5){
 
