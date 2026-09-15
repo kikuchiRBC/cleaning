@@ -1,54 +1,407 @@
 
 let allQuizData = [
     
-{image:"images/tool01.png",answer:"<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>"},
-{image:"images/tool02.png",answer:"<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>"},
-{image:"images/tool03.png",answer:"<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>"},
-{image:"images/tool04.png",answer:"<ruby>ハンディバキューム<rt>はんでぃばきゅーむ</rt></ruby>"},
-{image:"images/tool05.png",answer:"<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>"},
+{
+ image:"images/tool01.png",
+ answer:"<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>",
+ choices:[
+  "<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>",
+  "<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>",
+  "<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>",
+  "<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool02.png",
+ answer:"<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>",
+ choices:[
+  "<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>",
+  "<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>",
+  "<ruby>ハンディバキューム<rt>はんでぃばきゅーむ</rt></ruby>",
+  "<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool03.png",
+ answer:"<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>",
+ choices:[
+  "<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>",
+  "<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>",
+  "<ruby>ハンディバキューム<rt>はんでぃばきゅーむ</rt></ruby>",
+  "<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool04.png",
+ answer:"<ruby>ハンディバキューム<rt>はんでぃばきゅーむ</rt></ruby>",
+ choices:[
+  "<ruby>ハンディバキューム<rt>はんでぃばきゅーむ</rt></ruby>",
+  "<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>",
+  "<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>",
+  "<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool05.png",
+ answer:"<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>",
+ choices:[
+  "<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>",
+  "<ruby>真空掃除機（ポッド型）<rt>しんくうそうじき（ぽっどがた）</rt></ruby>",
+  "<ruby>真空掃除機（アップライト型）<rt>しんくうそうじき（あっぷらいとがた）</rt></ruby>",
+  "<ruby>ハンディバキューム<rt>はんでぃばきゅーむ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool06.png",
+ answer:"<ruby>フロアパッド<rt>ふろあぱっど</rt></ruby>",
+ choices:[
+  "<ruby>フロアパッド<rt>ふろあぱっど</rt></ruby>",
+  "<ruby>ハンドパッド<rt>はんどぱっど</rt></ruby>",
+  "<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>",
+  "<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool07.png",
+ answer:"<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>",
+ choices:[
+  "<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>",
+  "<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>",
+  "<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>",
+  "<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool08.png",
+ answer:"<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>",
+ choices:[
+  "<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>",
+  "<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>",
+  "<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>",
+  "<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool09.png",
+ answer:"<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>",
+ choices:[
+  "<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>",
+  "<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>",
+  "<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>",
+  "<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool10.png",
+ answer:"<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>",
+ choices:[
+  "<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>",
+  "<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>",
+  "<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>",
+  "<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool11.png",
+ answer:"<ruby>送風機<rt>そうふうき</rt></ruby>",
+ choices:[
+  "<ruby>送風機<rt>そうふうき</rt></ruby>",
+  "<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>",
+  "<ruby>ウェットバキューム<rt>うぇっとばきゅーむ</rt></ruby>",
+  "<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool12.png",
+ answer:"<ruby>ハンドパッド<rt>はんどぱっど</rt></ruby>",
+ choices:[
+  "<ruby>ハンドパッド<rt>はんどぱっど</rt></ruby>",
+  "<ruby>フロアパッド<rt>ふろあぱっど</rt></ruby>",
+  "<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>",
+  "<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool13.png",
+ answer:"<ruby>静電気ほこり取り<rt>せいでんきほこりとり</rt></ruby>",
+ choices:[
+  "<ruby>静電気ほこり取り<rt>せいでんきほこりとり</rt></ruby>",
+  "<ruby>超極細繊維クロス<rt>ちょうごくさいせんいくろす</rt></ruby>",
+  "<ruby>タオル<rt>たおる</rt></ruby>",
+  "<ruby>ダストクロス<rt>だすとくろす</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool14.png",
+ answer:"<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>",
+ choices:[
+  "<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>",
+  "<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>",
+  "<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>",
+  "<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool15.png",
+ answer:"<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>",
+ choices:[
+  "<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>",
+  "<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>",
+  "<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>",
+  "<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>"
+ ]
+},{
+ image:"images/tool16.png",
+ answer:"<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>",
+ choices:[
+  "<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>",
+  "<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>",
+  "<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>",
+  "<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool17.png",
+ answer:"<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>",
+ choices:[
+  "<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>",
+  "<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>",
+  "<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>",
+  "<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool18.png",
+ answer:"<ruby>作業カート<rt>さぎょうかーと</rt></ruby>",
+ choices:[
+  "<ruby>作業カート<rt>さぎょうかーと</rt></ruby>",
+  "<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>",
+  "<ruby>手押し台車<rt>ておしだいしゃ</rt></ruby>",
+  "<ruby>モップ絞り器<rt>もっぷしぼりき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool19.png",
+ answer:"<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>",
+ choices:[
+  "<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>",
+  "<ruby>作業カート<rt>さぎょうかーと</rt></ruby>",
+  "<ruby>手押し台車<rt>ておしだいしゃ</rt></ruby>",
+  "<ruby>バケツ<rt>ばけつ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool20.png",
+ answer:"<ruby>手押し台車<rt>ておしだいしゃ</rt></ruby>",
+ choices:[
+  "<ruby>手押し台車<rt>ておしだいしゃ</rt></ruby>",
+  "<ruby>作業カート<rt>さぎょうかーと</rt></ruby>",
+  "<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>",
+  "<ruby>バケツ<rt>ばけつ</rt></ruby>"
+ ]
+},
 
-{image:"images/tool06.png",answer:"<ruby>フロアパッド<rt>ふろあぱっど</rt></ruby>"},
-{image:"images/tool07.png",answer:"<ruby>ポリッシャー<rt>ぽりっしゃー</rt></ruby>"},
-{image:"images/tool08.png",answer:"<ruby>自動床洗浄機<rt>じどうゆかせんじょうき</rt></ruby>"},
-{image:"images/tool09.png",answer:"<ruby>エクストラクター<rt>えくすとらくたー</rt></ruby>"},
-{image:"images/tool10.png",answer:"<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>"},
+{
+ image:"images/tool21.png",
+ answer:"<ruby>作業掲示板（フロアサイン）<rt>さぎょうけいじばん（ふろあさいん）</rt></ruby>",
+ choices:[
+  "<ruby>作業掲示板（フロアサイン）<rt>さぎょうけいじばん（ふろあさいん）</rt></ruby>",
+  "<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>",
+  "<ruby>作業カート<rt>さぎょうかーと</rt></ruby>",
+  "<ruby>手押し台車<rt>ておしだいしゃ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool22.png",
+ answer:"<ruby>自在ほうき<rt>じざいほうき</rt></ruby>",
+ choices:[
+  "<ruby>自在ほうき<rt>じざいほうき</rt></ruby>",
+  "<ruby>シダほうき<rt>しだほうき</rt></ruby>",
+  "<ruby>文化ちり取り<rt>ぶんかちりとり</rt></ruby>",
+  "<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool23.png",
+ answer:"<ruby>シダほうき<rt>しだほうき</rt></ruby>",
+ choices:[
+  "<ruby>シダほうき<rt>しだほうき</rt></ruby>",
+  "<ruby>自在ほうき<rt>じざいほうき</rt></ruby>",
+  "<ruby>文化ちり取り<rt>ぶんかちりとり</rt></ruby>",
+  "<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool24.png",
+ answer:"<ruby>文化ちり取り<rt>ぶんかちりとり</rt></ruby>",
+ choices:[
+  "<ruby>文化ちり取り<rt>ぶんかちりとり</rt></ruby>",
+  "<ruby>自在ほうき<rt>じざいほうき</rt></ruby>",
+  "<ruby>シダほうき<rt>しだほうき</rt></ruby>",
+  "<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool25.png",
+ answer:"<ruby>ダストクロス<rt>だすとくろす</rt></ruby>",
+ choices:[
+  "<ruby>ダストクロス<rt>だすとくろす</rt></ruby>",
+  "<ruby>超極細繊維クロス<rt>ちょうごくさいせんいくろす</rt></ruby>",
+  "<ruby>タオル<rt>たおる</rt></ruby>",
+  "<ruby>静電気ほこり取り<rt>せいでんきほこりとり</rt></ruby>"
+ ]
+},
 
-{image:"images/tool11.png",answer:"<ruby>送風機<rt>そうふうき</rt></ruby>"},
-{image:"images/tool12.png",answer:"<ruby>ハンドパッド<rt>はんどぱっど</rt></ruby>"},
-{image:"images/tool13.png",answer:"<ruby>静電気ほこり取り<rt>せいでんきほこりとり</rt></ruby>"},
-{image:"images/tool14.png",answer:"<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>"},
-{image:"images/tool15.png",answer:"<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>"},
-
-{image:"images/tool16.png",answer:"<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>"},
-{image:"images/tool17.png",answer:"<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>"},
-{image:"images/tool18.png",answer:"<ruby>作業カート<rt>さぎょうかーと</rt></ruby>"},
-{image:"images/tool19.png",answer:"<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>"},
-{image:"images/tool20.png",answer:"<ruby>手押し台車<rt>ておしだいしゃ</rt></ruby>"},
-
-{image:"images/tool21.png",answer:"<ruby>作業掲示板（フロアサイン）<rt>さぎょうけいじばん（ふろあさいん）</rt></ruby>"},
-{image:"images/tool22.png",answer:"<ruby>自在ほうき<rt>じざいほうき</rt></ruby>"},
-{image:"images/tool23.png",answer:"<ruby>シダほうき<rt>しだほうき</rt></ruby>"},
-{image:"images/tool24.png",answer:"<ruby>文化ちり取り<rt>ぶんかちりとり</rt></ruby>"},
-{image:"images/tool25.png",answer:"<ruby>ダストクロス<rt>だすとくろす</rt></ruby>"},
-
-{image:"images/tool26.png",answer:"<ruby>ダストクロス型モップ<rt>だすとくろすがたもっぷ</rt></ruby>"},
-{image:"images/tool27.png",answer:"<ruby>湿式モップ（ワンタッチモップ）<rt>しっしきもっぷ（わんたっちもっぷ）</rt></ruby>"},
-{image:"images/tool28.png",answer:"<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>"},
-{image:"images/tool29.png",answer:"<ruby>乾式モップ<rt>かんしきもっぷ</rt></ruby>"},
-{image:"images/tool30.png",answer:"<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>"},
-
-{image:"images/tool31.png",answer:"<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>"},
-{image:"images/tool32.png",answer:"<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>"},
-{image:"images/tool33.png",answer:"<ruby>汚水取り<rt>おすいとり</rt></ruby>"},
-{image:"images/tool34.png",answer:"<ruby>シャンパー<rt>しゃんぱー</rt></ruby>"},
-{image:"images/tool35.png",answer:"<ruby>ウインドスクイジー<rt>ういんどすくいじー</rt></ruby>"},
-
-{image:"images/tool36.png",answer:"<ruby>タオル<rt>たおる</rt></ruby>"},
-{image:"images/tool37.png",answer:"<ruby>超極細繊維クロス<rt>ちょうごくさいせんいくろす</rt></ruby>"},
-{image:"images/tool38.png",answer:"<ruby>毛かき<rt>けかき</rt></ruby>"},
-{image:"images/tool39.png",answer:"<ruby>バケツ<rt>ばけつ</rt></ruby>"},
-{image:"images/tool40.png",answer:"<ruby>モップ絞り器<rt>もっぷしぼりき</rt></ruby>"}
-,
+{
+ image:"images/tool26.png",
+ answer:"<ruby>ダストクロス型モップ<rt>だすとくろすがたもっぷ</rt></ruby>",
+ choices:[
+  "<ruby>ダストクロス型モップ<rt>だすとくろすがたもっぷ</rt></ruby>",
+  "<ruby>乾式モップ<rt>かんしきもっぷ</rt></ruby>",
+  "<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>",
+  "<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool27.png",
+ answer:"<ruby>湿式モップ（ワンタッチモップ）<rt>しっしきもっぷ（わんたっちもっぷ）</rt></ruby>",
+ choices:[
+  "<ruby>湿式モップ（ワンタッチモップ）<rt>しっしきもっぷ（わんたっちもっぷ）</rt></ruby>",
+  "<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>",
+  "<ruby>乾式モップ<rt>かんしきもっぷ</rt></ruby>",
+  "<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool28.png",
+ answer:"<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>",
+ choices:[
+  "<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>",
+  "<ruby>湿式モップ（ワンタッチモップ）<rt>しっしきもっぷ（わんたっちもっぷ）</rt></ruby>",
+  "<ruby>乾式モップ<rt>かんしきもっぷ</rt></ruby>",
+  "<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool29.png",
+ answer:"<ruby>乾式モップ<rt>かんしきもっぷ</rt></ruby>",
+ choices:[
+  "<ruby>乾式モップ<rt>かんしきもっぷ</rt></ruby>",
+  "<ruby>ダストクロス型モップ<rt>だすとくろすがたもっぷ</rt></ruby>",
+  "<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>",
+  "<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool30.png",
+ answer:"<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>",
+ choices:[
+  "<ruby>フラット型モップ<rt>ふらっとがたもっぷ</rt></ruby>",
+  "<ruby>ダストクロス型モップ<rt>だすとくろすがたもっぷ</rt></ruby>",
+  "<ruby>湿式モップ（ワンタッチモップ）<rt>しっしきもっぷ（わんたっちもっぷ）</rt></ruby>",
+  "<ruby>T字型モップ<rt>てぃーじがたもっぷ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool31.png",
+ answer:"<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>",
+ choices:[
+  "<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>",
+  "<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>",
+  "<ruby>汚水取り<rt>おすいとり</rt></ruby>",
+  "<ruby>シダほうき<rt>しだほうき</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool32.png",
+ answer:"<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>",
+ choices:[
+  "<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>",
+  "<ruby>汚水取り<rt>おすいとり</rt></ruby>",
+  "<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>",
+  "<ruby>ウインドスクイジー<rt>ういんどすくいじー</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool33.png",
+ answer:"<ruby>汚水取り<rt>おすいとり</rt></ruby>",
+ choices:[
+  "<ruby>汚水取り<rt>おすいとり</rt></ruby>",
+  "<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>",
+  "<ruby>デッキブラシ<rt>でっきぶらし</rt></ruby>",
+  "<ruby>ウインドスクイジー<rt>ういんどすくいじー</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool34.png",
+ answer:"<ruby>シャンパー<rt>しゃんぱー</rt></ruby>",
+ choices:[
+  "<ruby>シャンパー<rt>しゃんぱー</rt></ruby>",
+  "<ruby>ウインドスクイジー<rt>ういんどすくいじー</rt></ruby>",
+  "<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>",
+  "<ruby>汚水取り<rt>おすいとり</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool35.png",
+ answer:"<ruby>ウインドスクイジー<rt>ういんどすくいじー</rt></ruby>",
+ choices:[
+  "<ruby>ウインドスクイジー<rt>ういんどすくいじー</rt></ruby>",
+  "<ruby>シャンパー<rt>しゃんぱー</rt></ruby>",
+  "<ruby>フロアスクイジー<rt>ふろあすくいじー</rt></ruby>",
+  "<ruby>汚水取り<rt>おすいとり</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool36.png",
+ answer:"<ruby>タオル<rt>たおる</rt></ruby>",
+ choices:[
+  "<ruby>タオル<rt>たおる</rt></ruby>",
+  "<ruby>超極細繊維クロス<rt>ちょうごくさいせんいくろす</rt></ruby>",
+  "<ruby>ダストクロス<rt>だすとくろす</rt></ruby>",
+  "<ruby>静電気ほこり取り<rt>せいでんきほこりとり</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool37.png",
+ answer:"<ruby>超極細繊維クロス<rt>ちょうごくさいせんいくろす</rt></ruby>",
+ choices:[
+  "<ruby>超極細繊維クロス<rt>ちょうごくさいせんいくろす</rt></ruby>",
+  "<ruby>タオル<rt>たおる</rt></ruby>",
+  "<ruby>ダストクロス<rt>だすとくろす</rt></ruby>",
+  "<ruby>静電気ほこり取り<rt>せいでんきほこりとり</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool38.png",
+ answer:"<ruby>毛かき<rt>けかき</rt></ruby>",
+ choices:[
+  "<ruby>毛かき<rt>けかき</rt></ruby>",
+  "<ruby>スクレーパー<rt>すくれーぱー</rt></ruby>",
+  "<ruby>プランジャー<rt>ぷらんじゃー</rt></ruby>",
+  "<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool39.png",
+ answer:"<ruby>バケツ<rt>ばけつ</rt></ruby>",
+ choices:[
+  "<ruby>バケツ<rt>ばけつ</rt></ruby>",
+  "<ruby>モップ絞り器<rt>もっぷしぼりき</rt></ruby>",
+  "<ruby>計量カップ<rt>けいりょうかっぷ</rt></ruby>",
+  "<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>"
+ ]
+},
+{
+ image:"images/tool40.png",
+ answer:"<ruby>モップ絞り器<rt>もっぷしぼりき</rt></ruby>",
+ choices:[
+  "<ruby>モップ絞り器<rt>もっぷしぼりき</rt></ruby>",
+  "<ruby>バケツ<rt>ばけつ</rt></ruby>",
+  "<ruby>作業カート<rt>さぎょうかーと</rt></ruby>",
+  "<ruby>廃棄物コレクター<rt>はいきぶつこれくたー</rt></ruby>"
+ ]
+},
 {type:"text",question:"<ruby>漏電<rt>ろうでん</rt></ruby>から<ruby>作業者<rt>さぎょうしゃ</rt></ruby>を<ruby>守<rt>まも</rt></ruby>る<ruby>装置<rt>そうち</rt></ruby>はどれ？",answer:"<ruby>漏電・過電流防止装置<rt>ろうでん・かでんりゅうぼうしそうち</rt></ruby>",
 
 choices:[

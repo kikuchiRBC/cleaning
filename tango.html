@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>特定技能ビルクリーニング よく出る単語集</title>
+<style>
+
+#questionText{
+    font-size:30px;
+    font-weight:bold;
+    line-height:2;
+}
+
+#toolImage{
+    display:block;
+    margin:20px auto;
+
+    width:100%;
+    max-width:250px;
+    height:auto;
+
+}
+
+#quiz{
+    width:600px;
+    max-width:90%;
+    margin:30px auto;
+    text-align:center;
+}
+
+#questionText{
+    font-size:30px;
+    font-weight:bold;
+    color:#003366;
+    margin:20px;
+}
+
+
+
+.animated-wave-section{
+    position:fixed;
+    left:0;
+    bottom:0;
+    width:100%;
+     height:250px;
+    overflow:hidden;
+    z-index:1;
+    pointer-events:none;
+}
+
+
+rt{
+    font-size:0.6em;
+    color:rgb(255, 255, 255);
+    font-weight:bold;
+}
+
+.question-list-page rt{
+    color:black !important;
+}
+
+
+.animated-wave{  
+    position:absolute;
+    bottom:-50px;
+    left:0;
+
+    width:200%;
+    height:180%;
+
+    display:block;
+
+    will-change: transform;
+    transform: translate3d(0,0,0);
+
+    animation:wave-animation 10s linear infinite;
+}
+
+
+
+
+
+/* 波線の色 */
+.animated-wave path {
+  fill: #00bcd4;
+}
+
+
+
+
+@keyframes wave-animation{
+    from{
+        transform: translateX(0);
+    }
+
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+
+
+
+.animated-wave-section .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 100px;
+  color: #333;
+}
+      button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+
+button:hover::before {
+  left: 140%;
+}
+
+
+button:hover{
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+  #orcaImage {
+  animation: swim 8s ease-in-out infinite;
+}
+
+@keyframes swim {
+  0% {
+    transform: translate(0px, 0px) rotate(-3deg);
+  }
+
+  25% {
+    transform: translate(15px, -8px) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(0px, -15px) rotate(3deg);
+  }
+
+  75% {
+    transform: translate(-15px, -8px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(0px, 0px) rotate(-3deg);
+  }
+}
+/* タイトル */
+h1{ border:none;
+    border-radius:12px;
+    background:linear-gradient(45deg,#87ebff,#69dce9);
+    color:white;
+    font-size:2.5rem;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.3);
+    margin-top:20px;
+}
+
+/* 問題文 */
+h2 {
+    animation: none;
+  display: inline-block;
+  max-width: 90%;
+  padding: 15px 25px;
+  margin: 15px 0;
+
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: bold;
+
+  background: rgba(0, 140, 255, 0.25);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+
+
+  box-shadow:
+    0 0 15px rgba(0,195,255,0.5),
+    inset 0 0 15px rgba(255,255,255,0.1);
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.8),
+    0 0 10px #00c6ff;
+}
+
+/* 問題文がふわふわ */
+h2 {
+  animation: floatQuestion 3s ease-in-out infinite;
+}
+
+@keyframes floatQuestion {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+img {
+  width: px;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+
+
+
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+       z-index: 9999;
+  }
+
+
+body {   
+ text-align:center;
+    font-family:sans-serif;
+
+    background-image:url("images/clean.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    margin:0;
+
+    min-height:100vh;
+
+    overflow-x:hidden;   /* 横だけ隠す */
+    overflow-y:auto;     /* 縦スクロールは許可 */
+}
+
+.fall-emoji{
+    position:fixed;
+    top:-50px;
+    font-size:40px;
+    z-index:99999;
+    pointer-events:none;
+    animation:fallDown linear forwards;
+}
+
+@keyframes fallDown{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(calc(100vh + 100px))
+                  rotate(720deg);
+        opacity:0;
+    }
+}
+.bubble-background{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  z-index:5;
+}
+
+
+/* 泡の見た目 */
+
+.bubble{
+  position:absolute;
+  bottom:-50px;
+
+  border:2px solid rgba(255,255,255,.7);
+  background:rgba(255,255,255,.15);
+
+  border-radius:50%;
+z-index:5;
+  animation:bubble 12s linear infinite;
+}
+
+
+/* 泡の一番明るい部分を疑似要素で表現 */
+.bubble::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.25) translate(-70%, -70%);
+  background: radial-gradient(rgba(255,255,255, 0.5), transparent);
+  border-radius: 50%;
+}
+
+/* 泡が上に浮かび上がっていくアニメーション */
+@keyframes bubble {
+  0% {
+   transform: translateY(0);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+.intro-box{
+    max-width:800px;
+    margin:10px auto;
+    padding:10px;
+
+    background:rgba(255,255,255,0.9);
+    border-radius:20px;
+
+    border:3px solid #69dce9;
+
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+
+    font-size:10px;
+    line-height:2;
+    font-weight:bold;
+
+    color:#003366;
+}
+
+
+.random-btn:hover{
+    background-color: darkorange;
+}
+
+/* スコア */
+#scoreBoard{
+  
+    position:fixed;
+    margin:10px auto;
+    width:fit-content;
+
+    top:15px;
+    right:20px;
+    background:rgba(255,255,255,0.9);
+    border-radius:15px;
+    padding:15px 25px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    font-size:22px;
+    font-weight:bold;
+}
+
+/* クイズエリア */
+#quiz{
+    width:600px;
+    max-width:90%;
+    margin:30px auto;
+    background:rgba(41, 230, 255, 0.95);
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+
+
+.random-btn{
+    background: linear-gradient(45deg,#c5bfff,#a79fff) !important;
+    color:white !important;
+}
+
+/* 問題数 */
+#count{
+    color:rgb(0, 43, 116);
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+.correct-effect{
+    position:fixed;
+    font-size:40px;
+    animation:pop 1s ease-out forwards;
+    pointer-events:none;
+    z-index:99999;
+}
+
+@keyframes pop{
+    0%{
+        transform:translateY(0) scale(0);
+        opacity:1;
+    }
+    50%{
+        transform:translateY(-50px) scale(1.5);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-100px) scale(2);
+        opacity:0;
+    }
+}
+/* ボタン */
+
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    background:#00bcd4;
+    color:white;
+    padding:15px;
+    border-radius:15px;
+}
+
+h2{
+    background:#4fc3f7;
+    color:white;
+    padding:10px;
+    border-radius:10px;
+}
+
+.word{
+    border-bottom:1px solid #ddd;
+    padding:12px;
+    font-size:20px;
+    line-height:2;
+}
+
+.meaning{
+    color:#003366;
+}
+
+rt{
+    font-size:0.6em;
+    color:red;
+}
+
+.back-btn{
+    display:block;
+    width:250px;
+    margin:30px auto;
+    padding:15px;
+    background:#2196f3;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+
+    #toolImage{
+        width:50%;
+        max-width:220px;
+        min-height:60px;
+        height:auto;
+    }
+
+    #scoreBoard{
+           position:fixed;
+        margin:10px auto;
+    }
+
+    rt{
+        font-size:0.5em;
+    }
+
+
+    .floating-close-btn{
+        top:80px;
+        right:10px;
+        font-size:16px;
+        padding:10px 16px;
+    }
+
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📚 よく出る単語集</h1>
+
+<h2>🧹 清掃用具</h2>
+
+<div class="word">
+<ruby>自在<rt>じざい</rt></ruby>ほうき
+<div class="meaning">
+床のごみを掃くほうき
+</div>
+</div>
+
+<div class="word">
+モップ
+<div class="meaning">
+床を拭く道具
+</div>
+</div>
+
+<div class="word">
+バケツ
+<div class="meaning">
+水を入れる容器
+</div>
+</div>
+
+<div class="word">
+ポリッシャー
+<div class="meaning">
+床を磨く機械
+</div>
+</div>
+
+<div class="word">
+<ruby>高圧洗浄機<rt>こうあつせんじょうき</rt></ruby>
+<div class="meaning">
+強い水で汚れを落とす機械
+</div>
+</div>
+
+<h2>🦠 汚れ</h2>
+
+<div class="word">
+<ruby>油汚<rt>あぶらよご</rt></ruby>れ
+<div class="meaning">
+キッチンなどの油の汚れ
+</div>
+</div>
+
+<div class="word">
+<ruby>水<rt>みず</rt></ruby>あか
+<div class="meaning">
+水道水が固まった汚れ
+</div>
+</div>
+
+<div class="word">
+ほこり
+<div class="meaning">
+細かいごみ
+</div>
+</div>
+
+<div class="word">
+カビ
+<div class="meaning">
+湿った場所に発生する汚れ
+</div>
+</div>
+
+<h2>🧪 洗剤</h2>
+
+<div class="word">
+<ruby>中性洗剤<rt>ちゅうせいせんざい</rt></ruby>
+<div class="meaning">
+普段の清掃によく使う洗剤
+</div>
+</div>
+
+<div class="word">
+<ruby>酸性洗剤<rt>さんせいせんざい</rt></ruby>
+<div class="meaning">
+水あかを落とす洗剤
+</div>
+</div>
+
+<div class="word">
+アルカリ<ruby>性洗剤<rt>せいせんざい</rt></ruby>
+<div class="meaning">
+油汚れを落とす洗剤
+</div>
+</div>
+
+<h2>⚠ 安全衛生</h2>
+
+<div class="word">
+<ruby>漏電<rt>ろうでん</rt></ruby>
+<div class="meaning">
+電気がもれること
+</div>
+</div>
+
+<div class="word">
+<ruby>感電<rt>かんでん</rt></ruby>
+<div class="meaning">
+電気でけがをすること
+</div>
+</div>
+
+<div class="word">
+<ruby>転倒<rt>てんとう</rt></ruby>
+<div class="meaning">
+ころぶこと
+</div>
+</div>
+
+<div class="word">
+<ruby>保護手袋<rt>ほごてぶくろ</rt></ruby>
+<div class="meaning">
+手を守る手袋
+</div>
+</div>
+
+<h2>🏢 職場のルール</h2>
+
+<div class="word">
+<ruby>先輩<rt>せんぱい</rt></ruby>
+<div class="meaning">
+経験が多い人
+</div>
+</div>
+
+<div class="word">
+<ruby>同僚<rt>どうりょう</rt></ruby>
+<div class="meaning">
+一緒に働く人
+</div>
+</div>
+
+<div class="word">
+<ruby>報告<rt>ほうこく</rt></ruby>
+<div class="meaning">
+結果を伝えること
+</div>
+</div>
+
+<div class="word">
+<ruby>連絡<rt>れんらく</rt></ruby>
+<div class="meaning">
+必要な情報を伝えること
+</div>
+</div>
+
+<div class="word">
+<ruby>相談<rt>そうだん</rt></ruby>
+<div class="meaning">
+困ったときに話すこと
+</div>
+</div>
+
+<div class="word">
+ホウレンソウ
+<div class="meaning">
+報告・連絡・相談
+</div>
+</div>
+
+<a href="index.html" class="home-btn">
+🏠 ホームへ戻る
+</a>

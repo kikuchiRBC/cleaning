@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定技能 ビルクリーニング 単語集</title>
+
+<style>
+    html {
+    scroll-behavior: smooth;
+}
+    /* 単語の画像枠 */
+.word-image-box{
+    width:100%;
+    height:180px;
+    margin:12px 0 18px;
+    background:linear-gradient(135deg,#e8faff,#f7ffff);
+    border:3px dashed #69dce9;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+}
+
+/* 画像 */
+.word-image-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    margin:0;
+}
+/* 右側のボタン全体 */
+.home-btn{
+    position: fixed;
+    top: 50%;
+    right: 18px;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    z-index: 9999;
+}
+
+/* 丸いボタン */
+.home-btn a{
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #00bcd4,
+        #2196f3
+    );
+
+    color: white;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* アイコン */
+.home-btn a{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* TOP・上へ */
+.home-btn a span{
+    font-size: 10px;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+/* マウスを乗せたとき */
+.home-btn a:hover{
+    transform: scale(1.12);
+    box-shadow:
+        0 8px 22px rgba(0,0,0,0.3);
+}
+
+/* 押したとき */
+.home-btn a:active{
+    transform: scale(0.95);
+}
+/* 画像がないとき */
+.image-placeholder{
+    color:#69aebb;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.image-placeholder span{
+    display:block;
+    font-size:42px;
+    margin-bottom:5px;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;text-align:center;font-family:"Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+ background-image:url("images/clean.jpg");background-size:cover;background-position:center;
+ background-attachment:fixed;min-height:100vh;overflow-x:hidden;color:#003366;
+}
+.bubble-background{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
+.bubble{position:absolute;bottom:-70px;border:2px solid rgba(255,255,255,.65);
+ background:rgba(255,255,255,.14);border-radius:50%;animation:bubble 12s linear infinite}
+.bubble::before{content:"";position:absolute;width:35%;height:35%;top:15%;left:18%;
+ border-radius:50%;background:rgba(255,255,255,.65)}
+@keyframes bubble{0%{transform:translateY(0) translateX(0);opacity:0}
+10%{opacity:1}100%{transform:translateY(-115vh) translateX(80px);opacity:0}}
+header{position:relative;z-index:10;padding:28px 15px 35px}
+.logo{display:inline-block;padding:8px 18px;border-radius:30px;background:rgba(255,255,255,.9);
+ color:#007caa;font-weight:bold;box-shadow:0 5px 15px rgba(0,80,120,.18)}
+h1{border:none;border-radius:15px;background:linear-gradient(45deg,#87ebff,#69dce9);
+ color:white;font-size:clamp(28px,5vw,42px);text-shadow:2px 2px 5px rgba(0,0,0,.3);
+ padding:16px 20px;margin:18px auto 10px;max-width:900px}
+.subtitle{color:#003366;background:rgba(255,255,255,.9);display:inline-block;
+ padding:8px 18px;border-radius:20px;font-weight:bold}
+main{position:relative;z-index:10}
+.container{max-width:1100px;width:94%;margin:0 auto 180px;background:rgba(255,255,255,.94);
+ border-radius:25px;padding:25px;box-shadow:0 10px 35px rgba(0,0,0,.22)}
+.search-area{background:rgba(0,188,212,.12);border:2px solid rgba(0,188,212,.25);
+ border-radius:20px;padding:18px;margin-bottom:22px}
+#search{width:100%;max-width:700px;padding:14px 20px;border:3px solid #69dce9;
+ border-radius:30px;font-size:17px;outline:none;color:#003366}
+#search:focus{box-shadow:0 0 15px rgba(0,188,212,.35)}
+.categories{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px}
+.category-btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#00c6ff,#0072ff);
+ color:#fff;border:none;padding:10px 17px;border-radius:50px;font-weight:bold;cursor:pointer;transition:.3s}
+.category-btn:hover,.category-btn.active{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.22)}
+.category-btn.active{background:linear-gradient(135deg,#ffb347,#ff7b00)}
+.info-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;
+ flex-wrap:wrap;margin:10px 5px 18px}
+#count{color:rgb(0,43,116);font-size:20px;font-weight:bold}.tip{font-size:13px;color:#426b7c}
+.word-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.word-card{position:relative;text-align:left;background:rgba(255,255,255,.98);border-radius:20px;
+ padding:20px;border:3px solid #b9eef4;box-shadow:0 7px 20px rgba(0,80,120,.12);
+ transition:.25s;overflow:hidden}
+.word-card::after{content:"💧";position:absolute;right:12px;top:8px;opacity:.18;font-size:35px}
+.word-card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,100,150,.2)}
+.category-label{display:inline-block;background:#d9f7fb;color:#007caa;padding:5px 11px;
+ border-radius:20px;font-size:12px;font-weight:bold}
+.word{font-size:28px;font-weight:bold;color:#003366;line-height:1.5;margin-top:8px}
+.word rt{font-size:.5em;color:#e53935;font-weight:bold}.reading{color:#557987;font-size:13px;margin:2px 0 12px}
+.language{border-radius:12px;padding:9px 11px;margin-top:8px;line-height:1.55;font-size:14px}
+.english{background:#eef7ff;border-left:5px solid #2196f3}.nepali{background:#fff4f4;border-left:5px solid #ef5350}
+.language-label{display:block;font-size:11px;font-weight:bold;margin-bottom:2px;opacity:.75}
+.meaning-title{color:#008c7a;font-size:12px;font-weight:bold;margin-top:13px}
+.meaning{color:#003366;font-size:14px;line-height:1.65}.example{margin-top:12px;background:#f1fbfc;
+ padding:10px;border-radius:10px;font-size:13px;line-height:1.7}.example strong{color:#008c7a}
+.empty{display:none;padding:50px 20px;color:#557987}
+.animated-wave-section{position:fixed;left:0;bottom:0;width:100%;height:190px;overflow:hidden;
+ z-index:5;pointer-events:none}.animated-wave{position:absolute;bottom:-45px;left:0;width:200%;height:180%;
+ display:block;will-change:transform;animation:wave-animation 10s linear infinite}
+.animated-wave path{fill:#00bcd4}@keyframes wave-animation{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+button::before{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+ background:rgba(255,255,255,.3);transform:skewX(-25deg);transition:.6s}
+button:hover::before{left:140%}
+footer{position:relative;z-index:10;padding:25px 15px 50px;color:#466d7a;font-size:13px}
+@media(max-width:850px){.word-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.container{padding:15px;width:96%}.word-grid{grid-template-columns:1fr}
+ .word{font-size:26px}.subtitle{font-size:13px}.animated-wave-section{height:120px}}
+@media (max-width:600px){
+
+    .home-btn{
+        right: 8px;
+        gap: 8px;
+    }
+
+    .home-btn a{
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    .home-btn a span{
+        font-size: 8px;
+    }
+}
+</style>
+</head>
+
+<body id="top">
+<div class="bubble-background" aria-hidden="true">
+<div class="bubble" style="left:5%;width:30px;height:30px;animation-delay:0s"></div>
+<div class="bubble" style="left:17%;width:55px;height:55px;animation-delay:4s"></div>
+<div class="bubble" style="left:31%;width:24px;height:24px;animation-delay:2s"></div>
+<div class="bubble" style="left:48%;width:45px;height:45px;animation-delay:7s"></div>
+<div class="bubble" style="left:67%;width:28px;height:28px;animation-delay:1s"></div>
+<div class="bubble" style="left:82%;width:60px;height:60px;animation-delay:5s"></div>
+</div>
+
+<header>
+<div class="logo">SSW BUILDING CLEANING</div>
+<h1>特定技能<br>ビルクリーニング 単語集</h1>
+<div class="subtitle">日本語・English・नेपाली で覚えよう！</div>
+</header>
+
+<main>
+
+    <section class="search-area">
+<input type="search" id="search" placeholder="🔎 単語・英語・ネパール語で検索できます">
+<div class="categories" id="categories"></div>
+</section>
+
+    <div class="info-bar">
+        <div class="count" id="count"></div>
+        <div class="tip">💡 カードを読んで、意味と使い方を覚えましょう</div>
+    </div>
+
+    <section class="word-grid" id="wordGrid"></section>
+
+    <div class="empty" id="empty">
+        🔍 該当する単語がありません。<br>
+        別の言葉で検索してみてください。
+    </div>
+
+</main>
+<div class="home-btn">
+    <a href="index.html" title="TOPへもどる">
+        🏠
+        <span>TOP</span>
+    </a>
+
+    <a href="#top" title="上へもどる">
+        ↑
+        <span>上へ</span>
+    </a>
+</div>
+<footer>
+    特定技能・ビルクリーニング学習用 単語集
+</footer>
+
+<script>
+
+/* =========================
+   単語データ
+   ここに単語を追加できます
+========================= */
+
+const words = [
+
+    // 基本
+    {
+        word: "清掃",
+        ruby: "せいそう",
+        english: "Cleaning",
+        nepali: "सरसफाइ",
+        category: "基本",
+          image: "images/word_seisou.png",
+  meaning: "<ruby>建物<rt>たてもの</rt></ruby>や<ruby>場所<rt>ばしょ</rt></ruby>をきれいにすること。",
+  example: "<ruby>毎日<rt>まいにち</rt></ruby>、<ruby>建物<rt>たてもの</rt></ruby>の<ruby>中<rt>なか</rt></ruby>を<ruby>清掃<rt>せいそう</rt></ruby>します。"
+   },
+    {
+        word: "汚れ",
+        ruby: "よごれ",
+        english: "Dirt / Stain",
+        nepali: "फोहोर / दाग",
+        category: "基本",
+        image: "images/word_yogore.png",
+  meaning: "きれいではないもの。ほこりや<ruby>水<rt>みず</rt></ruby>あかなど。",
+  example: "<ruby>床<rt>ゆか</rt></ruby>の<ruby>汚<rt>よご</rt></ruby>れを<ruby>取<rt>と</rt></ruby>ります。"
+   },
+    {
+        word: "ほこり",
+        ruby: "ほこり",
+        english: "Dust",
+        nepali: "धुलो",
+        category: "基本",
+          image: "images/word_hokori.png",
+   meaning: "<ruby>小<rt>ちい</rt></ruby>さなごみや<ruby>細<rt>こま</rt></ruby>かい<ruby>汚<rt>よご</rt></ruby>れ。",
+  example: "<ruby>掃除機<rt>そうじき</rt></ruby>でほこりを<ruby>取<rt>と</rt></ruby>ります。"
+  },
+    {
+        word: "除去",
+        ruby: "じょきょ",
+        english: "Removal",
+        nepali: "हटाउने काम",
+        category: "基本",
+          image: "images/word_jokyo.png",
+  meaning: "<ruby>汚<rt>よご</rt></ruby>れやごみなどを<ruby>取<rt>と</rt></ruby>り<ruby>除<rt>のぞ</rt></ruby>くこと。",
+  example: "<ruby>床<rt>ゆか</rt></ruby>の<ruby>汚<rt>よご</rt></ruby>れを<ruby>除去<rt>じょきょ</rt></ruby>します。"
+  },
+    {
+        word: "洗浄",
+        ruby: "せんじょう",
+        english: "Cleaning / Washing",
+        nepali: "धुने काम",
+        category: "基本",
+          image: "images/word_senjo.png",
+  meaning: "<ruby>水<rt>みず</rt></ruby>や<ruby>洗剤<rt>せんざい</rt></ruby>などを<ruby>使<rt>つか</rt></ruby>って、<ruby>汚<rt>よご</rt></ruby>れを<ruby>洗<rt>あら</rt></ruby>い<ruby>落<rt>お</rt></ruby>とすこと。",
+  example: "<ruby>床<rt>ゆか</rt></ruby>を<ruby>洗浄<rt>せんじょう</rt></ruby>します。"
+   },
+    {
+        word: "消毒",
+        ruby: "しょうどく",
+        english: "Disinfection",
+        nepali: "कीटाणुशोधन",
+        category: "基本",
+          image: "images/word_syodoku.png",
+  meaning: "<ruby>病気<rt>びょうき</rt></ruby>の<ruby>原因<rt>げんいん</rt></ruby>になる<ruby>細菌<rt>さいきん</rt></ruby>などを<ruby>減<rt>へ</rt></ruby>らすこと。",
+  example: "トイレを<ruby>消毒<rt>しょうどく</rt></ruby>します。"
+ },
+    {
+        word: "手順",
+        ruby: "てじゅん",
+        english: "Procedure / Steps",
+        nepali: "कार्यविधि / चरण",
+        category: "基本",
+          image: "images/word_tejun.png",
+  meaning: "<ruby>仕事<rt>しごと</rt></ruby>をするときの<ruby>順番<rt>じゅんばん</rt></ruby>。",
+  example: "<ruby>決<rt>き</rt></ruby>められた<ruby>手順<rt>てじゅん</rt></ruby>で<ruby>作業<rt>さぎょう</rt></ruby>します。"
+   },
+    {
+        word: "確認",
+        ruby: "かくにん",
+        english: "Check / Confirmation",
+        nepali: "जाँच / पुष्टि",
+        category: "基本",
+          image: "images/word_kakunin.png",
+  meaning: "<ruby>間違<rt>まちが</rt></ruby>いがないか、よく<ruby>見<rt>み</rt></ruby>ること。",
+  example: "<ruby>作業前<rt>さぎょうまえ</rt></ruby>に<ruby>道具<rt>どうぐ</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>します。"
+   },
+
+    // 場所
+    {
+        word: "床",
+        ruby: "ゆか",
+        english: "Floor",
+        nepali: "भुइँ",
+        category: "清掃場所",
+          image: "images/word_yuka.png",
+  meaning: "<ruby>部屋<rt>へや</rt></ruby>や<ruby>廊下<rt>ろうか</rt></ruby>などの<ruby>下<rt>した</rt></ruby>の<ruby>面<rt>めん</rt></ruby>。",
+  example: "<ruby>床<rt>ゆか</rt></ruby>をモップで<ruby>拭<rt>ふ</rt></ruby>きます。"
+   },
+    {
+        word: "床面",
+        ruby: "ゆかめん",
+        english: "Floor surface",
+        nepali: "भुइँको सतह",
+        category: "清掃場所",
+          image: "images/word_yukamen.png",
+  meaning: "<ruby>床<rt>ゆか</rt></ruby>の<ruby>表面<rt>ひょうめん</rt></ruby>。",
+  example: "<ruby>床面<rt>しょうめん</rt></ruby>の<ruby>汚<rt>よご</rt></ruby>れを<ruby>確認<rt>かくにん</rt></ruby>します。"
+  },
+    {
+        word: "壁",
+        ruby: "かべ",
+        english: "Wall",
+        nepali: "भित्ता",
+        category: "清掃場所",
+          image: "images/word_kabe.png",
+  meaning: "<ruby>部屋<rt>へや</rt></ruby>などを<ruby>囲<rt>かこ</rt></ruby>んでいる<ruby>面<rt>めん</rt></ruby>。",
+  example: "<ruby>壁<rt>かべ</rt></ruby>のほこりを<ruby>取<rt>と</rt></ruby>ります。"
+   },
+    {
+        word: "天井",
+        ruby: "てんじょう",
+        english: "Ceiling",
+        nepali: "छत",
+        category: "清掃場所",
+          image: "images/word_tenjo.png",
+ 
+  meaning: "<ruby>部屋<rt>へや</rt></ruby>の<ruby>上<rt>うえ</rt></ruby>にある<ruby>面<rt>めん</rt></ruby>。",
+  example: "<ruby>天井<rt>てんじょう</rt></ruby>のほこりを<ruby>取<rt>と</rt></ruby>ります。"
+    },
+    {
+        word: "窓",
+        ruby: "まど",
+        english: "Window",
+        nepali: "झ्याल",
+        category: "清掃場所",
+          image: "images/word_window.png",
+   meaning: "<ruby>外<rt>そと</rt></ruby>を<ruby>見<rt>み</rt></ruby>るためのガラスなどがある<ruby>場所<rt>ばしょ</rt></ruby>。",
+  example: "<ruby>窓<rt>まど</rt></ruby>をきれいにします。"
+    },
+    {
+        word: "窓枠",
+        ruby: "まどわく",
+        english: "Window frame",
+        nepali: "झ्यालको फ्रेम",
+        category: "清掃場所",
+          image: "images/word_madowaku.png",
+   meaning: "<ruby>窓<rt>まど</rt></ruby>のまわりの<ruby>枠<rt>わく</rt></ruby>。",
+  example: "<ruby>窓枠<rt>まどわく</rt></ruby>のほこりを<ruby>取<rt>と</rt></ruby>ります。"
+    },
+    {
+        word: "階段",
+        ruby: "かいだん",
+        english: "Stairs",
+        nepali: "भर्‍याङ",
+        category: "清掃場所",
+          image: "images/word_kaidan.png",
+
+  meaning: "<ruby>上<rt>うえ</rt></ruby>の<ruby>階<rt>かい</rt></ruby>と<ruby>下<rt>した</rt></ruby>の<ruby>階<rt>かい</rt></ruby>をつなぐ<ruby>場所<rt>ばしょ</rt></ruby>。",
+  example: "<ruby>階段<rt>かいだん</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>します。"
+    },
+    {
+        word: "廊下",
+        ruby: "ろうか",
+        english: "Corridor / Hallway",
+        nepali: "गलियारा",
+        category: "清掃場所",
+          image: "images/word_rouka.png",
+  meaning: "<ruby>部屋<rt>へや</rt></ruby>と<ruby>部屋<rt>へや</rt></ruby>をつなぐ<ruby>通路<rt>つうろ</rt></ruby>。",
+  example: "<ruby>廊下<rt>ろうか</rt></ruby>をモップで<ruby>拭<rt>ふ</rt></ruby>きます。"
+    },
+    {
+        word: "便器",
+        ruby: "べんき",
+        english: "Toilet bowl",
+        nepali: "शौचालयको कमोड",
+        category: "清掃場所",
+          image: "images/word_benki.png",
+  meaning: "トイレで<ruby>使<rt>つか</rt></ruby>う<ruby>器具<rt>きぐ</rt></ruby>。",
+  example: "<ruby>便器<rt>べんき</rt></ruby>を<ruby>洗浄<rt>せんじょう</rt></ruby>します。"
+   },
+    {
+        word: "洗面台",
+        ruby: "せんめんだい",
+        english: "Washbasin",
+        nepali: "हातमुख धुने बेसिन",
+        category: "清掃場所",
+          image: "images/word_senmendai.png",
+
+  meaning: "<ruby>顔<rt>かお</rt></ruby>や<ruby>手<rt>て</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>うための<ruby>台<rt>だい</rt></ruby>。",
+  example: "<ruby>洗面台<rt>せんめんだい</rt></ruby>を<ruby>拭<rt>ふ</rt></ruby>きます。"
+    },
+    {
+        word: "手すり",
+        ruby: "てすり",
+        english: "Handrail",
+        nepali: "हात समात्ने रेलिङ",
+        category: "清掃場所",
+          image: "images/word_tesuri.png",
+  meaning: "<ruby>歩<rt>ある</rt></ruby>くときなどにつかまるためのもの。",
+  example: "<ruby>手<rt>て</rt></ruby>すりを<ruby>消毒<rt>しょうどく</rt></ruby>します。"
+    },
+
+// 道具
+{
+    word: "モップ",
+    ruby: "もっぷ",
+    english: "Mop",
+    nepali: "मोप",
+    category: "清掃道具",
+    image: "images/word_moppu.png",
+    meaning: "<ruby>床<rt>ゆか</rt></ruby>を<ruby>拭<rt>ふ</rt></ruby>くための<ruby>道具<rt>どうぐ</rt></ruby>。",
+    example: "モップで<ruby>床<rt>ゆか</rt></ruby>を<ruby>拭<rt>ふ</rt></ruby>きます。"
+},
+
+{
+    word: "掃除機",
+    ruby: "そうじき",
+    english: "Vacuum cleaner",
+    nepali: "भ्याकुम क्लिनर",
+    category: "清掃道具",
+    image: "images/word_soujiki.png",
+    meaning: "<ruby>ほこり<rt></rt></ruby>やごみを<ruby>吸<rt>す</rt></ruby>い<ruby>取<rt>と</rt></ruby>る<ruby>機械<rt>きかい</rt></ruby>。",
+    example: "<ruby>掃除機<rt>そうじき</rt></ruby>で<ruby>床<rt>ゆか</rt></ruby>を<ruby>掃除<rt>そうじ</rt></ruby>します。"
+},
+
+{
+    word: "ポリッシャー",
+    ruby: "ぽりっしゃー",
+    english: "Floor polisher",
+    nepali: "भुइँ पालिस गर्ने मेसिन",
+    category: "清掃道具",
+    image: "images/word_porissya.png",
+    meaning: "<ruby>床<rt>ゆか</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>ったり、<ruby>磨<rt>みが</rt></ruby>いたりする<ruby>機械<rt>きかい</rt></ruby>。",
+    example: "ポリッシャーで<ruby>床<rt>ゆか</rt></ruby>を<ruby>洗浄<rt>せんじょう</rt></ruby>します。"
+},
+
+{
+    word: "スクイジー",
+    ruby: "すくいじー",
+    english: "Squeegee",
+    nepali: "स्क्वीजी",
+    category: "清掃道具",
+    image: "images/word_sukuiji-.png",
+    meaning: "ガラスなどの<ruby>水<rt>みず</rt></ruby>を<ruby>取<rt>と</rt></ruby>り<ruby>除<rt>のぞ</rt></ruby>く<ruby>道具<rt>どうぐ</rt></ruby>。",
+    example: "スクイジーでガラスの<ruby>水<rt>みず</rt></ruby>を<ruby>取<rt>と</rt></ruby>ります。"
+},
+
+{
+    word: "デッキブラシ",
+    ruby: "でっきぶらし",
+    english: "Deck brush",
+    nepali: "डेक ब्रस",
+    category: "清掃道具",
+    image: "images/word_dekkibrashi.png",
+    meaning: "<ruby>床<rt>ゆか</rt></ruby>を<ruby>強<rt>つよ</rt></ruby>くこするためのブラシ。",
+    example: "<ruby>石材<rt>せきざい</rt></ruby>の<ruby>床<rt>ゆか</rt></ruby>をデッキブラシでこすります。"
+},
+
+{
+    word: "バケツ",
+    ruby: "ばけつ",
+    english: "Bucket",
+    nepali: "बाल्टिन",
+    category: "清掃道具",
+    image: "images/word_baketu.png",
+    meaning: "<ruby>水<rt>みず</rt></ruby>や<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>入<rt>い</rt></ruby>れて<ruby>運<rt>はこ</rt></ruby>ぶ<ruby>容器<rt>ようき</rt></ruby>。",
+    example: "バケツに<ruby>水<rt>みず</rt></ruby>を<ruby>入<rt>い</rt></ruby>れます。"
+},
+
+{
+    word: "ちり取り",
+    ruby: "ちりとり",
+    english: "Dustpan",
+    nepali: "फोहोर उठाउने प्यान",
+    category: "清掃道具",
+    image: "images/word_tiritori.png",
+    meaning: "ほうきで<ruby>集<rt>あつ</rt></ruby>めたごみを<ruby>取<rt>と</rt></ruby>る<ruby>道具<rt>どうぐ</rt></ruby>。",
+    example: "ごみをちり<ruby>取<rt>と</rt></ruby>りに<ruby>入<rt>い</rt></ruby>れます。"
+},
+
+{
+    word: "ゴム手袋",
+    ruby: "ごむてぶくろ",
+    english: "Rubber gloves",
+    nepali: "रबरका पञ्जा",
+    category: "清掃道具",
+    image: "images/word_gomutebukuro.png",
+    meaning: "<ruby>手<rt>て</rt></ruby>を<ruby>汚<rt>よご</rt></ruby>れや<ruby>薬剤<rt>やくざい</rt></ruby>から<ruby>守<rt>まも</rt></ruby>る<ruby>手袋<rt>てぶくろ</rt></ruby>。",
+    example: "<ruby>清掃<rt>せいそう</rt></ruby>するときはゴム<ruby>手袋<rt>てぶくろ</rt></ruby>をします。"
+},
+
+{
+    word: "スクレーパー",
+    ruby: "すくれーぱー",
+    english: "Scraper",
+    nepali: "स्क्रेपर",
+    category: "清掃道具",
+    image: "images/word_スクレーパー.png",
+    meaning: "<ruby>固<rt>かた</rt></ruby>まった<ruby>汚<rt>よご</rt></ruby>れなどを<ruby>削<rt>けず</rt></ruby>り<ruby>取<rt>と</rt></ruby>る<ruby>道具<rt>どうぐ</rt></ruby>。",
+    example: "<ruby>床<rt>ゆか</rt></ruby>の<ruby>固<rt>かた</rt></ruby>い<ruby>汚<rt>よご</rt></ruby>れをスクレーパーで<ruby>取<rt>と</rt></ruby>ります。"
+},
+
+{
+    word: "送風機",
+    ruby: "そうふうき",
+    english: "Air blower",
+    nepali: "हावा फुक्ने मेसिन",
+    category: "清掃道具",
+    image: "images/word_souhuuki.png",
+    meaning: "<ruby>風<rt>かぜ</rt></ruby>を<ruby>送<rt>おく</rt></ruby>って、<ruby>床<rt>ゆか</rt></ruby>などを<ruby>乾<rt>かわ</rt></ruby>かす<ruby>機械<rt>きかい</rt></ruby>。",
+    example: "<ruby>送風機<rt>そうふうき</rt></ruby>で<ruby>床<rt>ゆか</rt></ruby>を<ruby>乾<rt>かわ</rt></ruby>かします。"
+},
+
+// 洗剤
+{
+    word: "洗剤",
+    ruby: "せんざい",
+    english: "Detergent",
+    nepali: "डिटर्जेन्ट / सफा गर्ने औषधि",
+    category: "洗剤・薬剤",
+    image: "images/word_senzai.png",
+    meaning: "<ruby>汚<rt>よご</rt></ruby>れを<ruby>落<rt>お</rt></ruby>とすために<ruby>使<rt>つか</rt></ruby>う<ruby>薬剤<rt>やくざい</rt></ruby>。",
+    example: "<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>水<rt>みず</rt></ruby>で<ruby>薄<rt>うす</rt></ruby>めます。"
+},
+
+{
+    word: "中性洗剤",
+    ruby: "ちゅうせいせんざい",
+    english: "Neutral detergent",
+    nepali: "तटस्थ डिटर्जेन्ट",
+    category: "洗剤・薬剤",
+    image: "images/word_chuusei.png",
+    meaning: "<ruby>床<rt>ゆか</rt></ruby>や<ruby>設備<rt>せつび</rt></ruby>などに<ruby>使<rt>つか</rt></ruby>うことができる<ruby>中性<rt>ちゅうせい</rt></ruby>の<ruby>洗剤<rt>せんざい</rt></ruby>。",
+    example: "<ruby>中性洗剤<rt>ちゅうせいせんざい</rt></ruby>で<ruby>床<rt>ゆか</rt></ruby>を<ruby>洗<rt>あら</rt></ruby>います。"
+},
+
+{
+    word: "酸性洗剤",
+    ruby: "さんせいせんざい",
+    english: "Acidic detergent",
+    nepali: "अम्लीय डिटर्जेन्ट",
+    category: "洗剤・薬剤",
+    image: "images/word_sansei.png",
+    meaning: "<ruby>水<rt>みず</rt></ruby>あかなどの<ruby>汚<rt>よご</rt></ruby>れを<ruby>落<rt>お</rt></ruby>とすために<ruby>使<rt>つか</rt></ruby>う<ruby>酸性<rt>さんせい</rt></ruby>の<ruby>洗剤<rt>せんざい</rt></ruby>。",
+    example: "<ruby>酸性洗剤<rt>さんせいせんざい</rt></ruby>を<ruby>正<rt>ただ</rt></ruby>しく<ruby>使用<rt>しよう</rt></ruby>します。"
+},
+
+{
+    word: "アルカリ性洗剤",
+    ruby: "あるかりせいせんざい",
+    english: "Alkaline detergent",
+    nepali: "क्षारीय डिटर्जेन्ट",
+    category: "洗剤・薬剤",
+    image: "images/word_arukari.png",
+    meaning: "<ruby>油<rt>あぶら</rt></ruby>などの<ruby>汚<rt>よご</rt></ruby>れを<ruby>落<rt>お</rt></ruby>とすために<ruby>使<rt>つか</rt></ruby>う<ruby>洗剤<rt>せんざい</rt></ruby>。",
+    example: "<ruby>アルカリ性洗剤<rt>あるかりせいせんざい</rt></ruby>を<ruby>使用<rt>しよう</rt></ruby>します。"
+},
+
+{
+    word: "希釈",
+    ruby: "きしゃく",
+    english: "Dilution",
+    nepali: "पातलो बनाउने काम",
+    category: "洗剤・薬剤",
+    image: "images/word_kisyaku.png",
+    meaning: "<ruby>洗剤<rt>せんざい</rt></ruby>などを<ruby>水<rt>みず</rt></ruby>で<ruby>薄<rt>うす</rt></ruby>めること。",
+    example: "<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>決<rt>き</rt></ruby>められた<ruby>濃度<rt>のうど</rt></ruby>に<ruby>希釈<rt>きしゃく</rt></ruby>します。"
+},
+
+{
+    word: "原液",
+    ruby: "げんえき",
+    english: "Undiluted solution",
+    nepali: "मूल घोल",
+    category: "洗剤・薬剤",
+    image: "images/word_genneki.png",
+    meaning: "<ruby>水<rt>みず</rt></ruby>などで<ruby>薄<rt>うす</rt></ruby>めていない<ruby>薬剤<rt>やくざい</rt></ruby>。",
+    example: "<ruby>原液<rt>げんえき</rt></ruby>を<ruby>直接<rt>ちょくせつ</rt></ruby><ruby>使<rt>つか</rt></ruby>わないでください。"
+},
+
+{
+    word: "濃度",
+    ruby: "のうど",
+    english: "Concentration",
+    nepali: "सांद्रता",
+    category: "洗剤・薬剤",
+    image: "images/word_noudo.png",
+    meaning: "<ruby>水<rt>みず</rt></ruby>などに<ruby>入<rt>はい</rt></ruby>っている<ruby>薬剤<rt>やくざい</rt></ruby>の<ruby>割合<rt>わりあい</rt></ruby>。",
+    example: "<ruby>洗剤<rt>せんざい</rt></ruby>の<ruby>濃度<rt>のうど</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>します。"
+},
+
+{
+    word: "ワックス",
+    ruby: "わっくす",
+    english: "Wax / Floor wax",
+    nepali: "मैन / भुइँको मैन",
+    category: "洗剤・薬剤",
+    image: "images/word_wax.png",
+    meaning: "<ruby>床<rt>ゆか</rt></ruby>の<ruby>表面<rt>ひょうめん</rt></ruby>を<ruby>保護<rt>ほご</rt></ruby>し、きれいに<ruby>見<rt>み</rt></ruby>せるためのもの。",
+    example: "<ruby>床<rt>ゆか</rt></ruby>にワックスを<ruby>塗<rt>ぬ</rt></ruby>ります。"
+},
+
+// 動作
+{
+    word: "拭く",
+    ruby: "ふく",
+    english: "Wipe",
+    nepali: "पुछ्नु",
+    category: "作業動詞",
+    image: "images/word_huku.png",
+    meaning: "<ruby>布<rt>ぬの</rt></ruby>などを<ruby>使<rt>つか</rt></ruby>って、<ruby>汚<rt>よご</rt></ruby>れや<ruby>水分<rt>すいぶん</rt></ruby>を<ruby>取<rt>と</rt></ruby>る。",
+    example: "<ruby>窓<rt>まど</rt></ruby>をタオルで<ruby>拭<rt>ふ</rt></ruby>きます。"
+},
+
+{
+    word: "磨く",
+    ruby: "みがく",
+    english: "Polish",
+    nepali: "माझ्नु / पालिस गर्नु",
+    category: "作業動詞",
+    image: "images/word_migaku.png",
+    meaning: "こすって、<ruby>表面<rt>ひょうめん</rt></ruby>をきれいにする。",
+    example: "<ruby>床<rt>ゆか</rt></ruby>を<ruby>機械<rt>きかい</rt></ruby>で<ruby>磨<rt>みが</rt></ruby>きます。"
+},
+
+{
+    word: "こする",
+    ruby: "こする",
+    english: "Scrub / Rub",
+    nepali: "घोट्नु",
+    category: "作業動詞",
+    image: "images/word_kosuru.png",
+    meaning: "<ruby>力<rt>ちから</rt></ruby>を<ruby>入<rt>い</rt></ruby>れて、<ruby>何度<rt>なんど</rt></ruby>も<ruby>動<rt>うご</rt></ruby>かす。",
+    example: "ブラシで<ruby>床<rt>ゆか</rt></ruby>をこすります。"
+},
+
+{
+    word: "吸う",
+    ruby: "すう",
+    english: "Suck / Vacuum",
+    nepali: "सोस्नु",
+    category: "作業動詞",
+    image: "images/word_suu.png",
+    meaning: "<ruby>掃除機<rt>そうじき</rt></ruby>などで、ごみやほこりを<ruby>取<rt>と</rt></ruby>り<ruby>込<rt>こ</rt></ruby>む。",
+    example: "<ruby>掃除機<rt>そうじき</rt></ruby>でごみを<ruby>吸<rt>す</rt></ruby>います。"
+},
+
+{
+    word: "絞る",
+    ruby: "しぼる",
+    english: "Wring / Squeeze",
+    nepali: "निचोर्नु",
+    category: "作業動詞",
+    image: "images/word_sibori.png",
+    meaning: "<ruby>布<rt>ぬの</rt></ruby>などから<ruby>水分<rt>すいぶん</rt></ruby>を<ruby>押<rt>お</rt></ruby>し<ruby>出<rt>だ</rt></ruby>す。",
+    example: "モップをよく<ruby>絞<rt>しぼ</rt></ruby>ります。"
+},
+
+{
+    word: "乾かす",
+    ruby: "かわかす",
+    english: "Dry",
+    nepali: "सुकाउनु",
+    category: "作業動詞",
+    image: "images/word_kawakasu.png",
+    meaning: "<ruby>水分<rt>すいぶん</rt></ruby>をなくして、<ruby>乾<rt>かわ</rt></ruby>いた<ruby>状態<rt>じょうたい</rt></ruby>にする。",
+    example: "<ruby>送風機<rt>そうふうき</rt></ruby>で<ruby>床<rt>ゆか</rt></ruby>を<ruby>乾<rt>かわ</rt></ruby>かします。"
+},
+
+{
+    word: "薄める",
+    ruby: "うすめる",
+    english: "Dilute",
+    nepali: "पातलो बनाउनु",
+    category: "作業動詞",
+    image: "images/word_kisyaku.png",
+    meaning: "<ruby>水<rt>みず</rt></ruby>などを<ruby>加<rt>くわ</rt></ruby>えて<ruby>濃<rt>こ</rt></ruby>さを<ruby>下<rt>さ</rt></ruby>げる。",
+    example: "<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>水<rt>みず</rt></ruby>で<ruby>薄<rt>うす</rt></ruby>めます。"
+},
+
+{
+    word: "塗る",
+    ruby: "ぬる",
+    english: "Apply / Coat",
+    nepali: "लगाउनु",
+    category: "作業動詞",
+    image: "images/word_nuru.png",
+    meaning: "<ruby>液体<rt>えきたい</rt></ruby>などを<ruby>表面<rt>ひょうめん</rt></ruby>につける。",
+    example: "<ruby>床<rt>ゆか</rt></ruby>にワックスを<ruby>塗<rt>ぬ</rt></ruby>ります。"
+},
+
+// 安全
+{
+    word: "安全",
+    ruby: "あんぜん",
+    english: "Safety",
+    nepali: "सुरक्षा",
+    category: "安全",
+    image: "images/word_anzen.png",
+    meaning: "<ruby>危険<rt>きけん</rt></ruby>がないこと。",
+    example: "<ruby>安全<rt>あんぜん</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>してから<ruby>作業<rt>さぎょう</rt></ruby>します。"
+},
+
+{
+    word: "危険",
+    ruby: "きけん",
+    english: "Danger",
+    nepali: "खतरा",
+    category: "安全",
+    image: "images/word_kikenn.png",
+    meaning: "けがや<ruby>事故<rt>じこ</rt></ruby>などが<ruby>起<rt>お</rt></ruby>こる<ruby>可能性<rt>かのうせい</rt></ruby>があること。",
+    example: "<ruby>濡<rt>ぬ</rt></ruby>れた<ruby>床<rt>ゆか</rt></ruby>は<ruby>危険<rt>きけん</rt></ruby>です。"
+},
+
+{
+    word: "転倒",
+    ruby: "てんとう",
+    english: "Fall / Tripping",
+    nepali: "लड्नु",
+    category: "安全",
+    image: "images/word_tento.png",
+    meaning: "<ruby>転<rt>ころ</rt></ruby>んで<ruby>倒<rt>たお</rt></ruby>れること。",
+    example: "<ruby>床<rt>ゆか</rt></ruby>が<ruby>濡<rt>ぬ</rt></ruby>れていると<ruby>転倒<rt>てんとう</rt></ruby>する<ruby>危険<rt>きけん</rt></ruby>があります。"
+},
+
+{
+    word: "感電",
+    ruby: "かんでん",
+    english: "Electric shock",
+    nepali: "विद्युतीय झट्का",
+    category: "安全",
+    image: "images/word_kanden.png",
+    meaning: "<ruby>電気<rt>でんき</rt></ruby>が<ruby>体<rt>からだ</rt></ruby>に<ruby>流<rt>なが</rt></ruby>れること。",
+    example: "<ruby>濡<rt>ぬ</rt></ruby>れた<ruby>手<rt>て</rt></ruby>で<ruby>電源<rt>でんげん</rt></ruby>を<ruby>触<rt>さわ</rt></ruby>ると<ruby>感電<rt>かんでん</rt></ruby>する<ruby>危険<rt>きけん</rt></ruby>があります。"
+},
+
+{
+    word: "換気",
+    ruby: "かんき",
+    english: "Ventilation",
+    nepali: "हावा आवतजावत",
+    category: "安全",
+    image: "images/word_kanki.png",
+    meaning: "<ruby>窓<rt>まど</rt></ruby>を<ruby>開<rt>あ</rt></ruby>けるなどして、<ruby>空気<rt>くうき</rt></ruby>を<ruby>入<rt>い</rt></ruby>れ<ruby>替<rt>か</rt></ruby>えること。",
+    example: "<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>使<rt>つか</rt></ruby>うときは<ruby>換気<rt>かんき</rt></ruby>します。"
+},
+
+{
+    word: "立入禁止",
+    ruby: "たちいりきんし",
+    english: "No entry",
+    nepali: "प्रवेश निषेध",
+    category: "安全",
+    image: "images/word_tatiirikinsi.png",
+    meaning: "<ruby>中<rt>なか</rt></ruby>に<ruby>入<rt>はい</rt></ruby>ってはいけないこと。",
+    example: "<ruby>清掃中<rt>せいそうちゅう</rt></ruby>は<ruby>立入禁止<rt>たちいりきんし</rt></ruby>にします。"
+},
+
+{
+    word: "電源を切る",
+    ruby: "でんげんをきる",
+    english: "Turn off the power",
+    nepali: "बिजुली बन्द गर्नु",
+    category: "安全",
+    image: "images/word_dengenkiru.png",
+    meaning: "<ruby>機械<rt>きかい</rt></ruby>などの<ruby>電気<rt>でんき</rt></ruby>を<ruby>止<rt>と</rt></ruby>める。",
+    example: "<ruby>作業<rt>さぎょう</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったら<ruby>電源<rt>でんげん</rt></ruby>を<ruby>切<rt>き</rt></ruby>ります。"
+},
+// 追加単語・動詞
+{
+    word: "塗布",
+    ruby: "とふ",
+    english: "Application",
+    nepali: "लगाउने काम",
+    category: "作業動詞",
+    image: "images/word_tofu.png",
+    meaning: "<ruby>洗剤<rt>せんざい</rt></ruby>などを<ruby>表面<rt>ひょうめん</rt></ruby>につけること。",
+    example: "ガラスに<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>塗布<rt>とふ</rt></ruby>します。"
+},
+
+{
+    word: "着用",
+    ruby: "ちゃくよう",
+    english: "Wear",
+    nepali: "लगाउनु",
+    category: "安全",
+    image: "images/word_chakuyou.png",
+    meaning: "<ruby>手袋<rt>てぶくろ</rt></ruby>などを<ruby>身<rt>み</rt></ruby>につけること。",
+    example: "<ruby>作業<rt>さぎょう</rt></ruby>するときは<ruby>手袋<rt>てぶくろ</rt></ruby>を<ruby>着用<rt>ちゃくよう</rt></ruby>します。"
+},
+
+{
+    word: "回収",
+    ruby: "かいしゅう",
+    english: "Collect / Retrieve",
+    nepali: "संकलन गर्नु",
+    category: "作業動詞",
+    image: "images/word_kaishuu.png",
+    meaning: "使ったものなどを<ruby>集<rt>あつ</rt></ruby>めること。",
+    example: "コードを<ruby>回収<rt>かいしゅう</rt></ruby>します。"
+},
+
+{
+    word: "片付ける",
+    ruby: "かたづける",
+    english: "Put away / Tidy up",
+    nepali: "मिलाएर राख्नु",
+    category: "作業動詞",
+    image: "images/word_katadukeru.png",
+    meaning: "<ruby>道具<rt>どうぐ</rt></ruby>などを<ruby>元<rt>もと</rt></ruby>の<ruby>場所<rt>ばしょ</rt></ruby>に<ruby>戻<rt>もど</rt></ruby>す。",
+    example: "<ruby>作業<rt>さぎょう</rt></ruby>が<ruby>終<rt>お</rt></ruby>わったら<ruby>道具<rt>どうぐ</rt></ruby>を<ruby>片付<rt>かたづ</rt></ruby>けます。"
+},
+
+{
+    word: "抜く",
+    ruby: "ぬく",
+    english: "Unplug / Pull out",
+    nepali: "निकाल्नु",
+    category: "作業動詞",
+    image: "images/word_nuku.png",
+    meaning: "プラグなどを<ruby>外<rt>はず</rt></ruby>す。",
+    example: "<ruby>電源<rt>でんげん</rt></ruby>プラグを<ruby>抜<rt>ぬ</rt></ruby>きます。"
+},
+
+{
+    word: "引っ張る",
+    ruby: "ひっぱる",
+    english: "Pull",
+    nepali: "तान्नु",
+    category: "作業動詞",
+    image: "images/word_hipparu.png",
+    meaning: "<ruby>力<rt>ちから</rt></ruby>を<ruby>入<rt>い</rt></ruby>れて<ruby>引<rt>ひ</rt></ruby>く。",
+    example: "コードを<ruby>引<rt>ひ</rt></ruby>っ<ruby>張<rt>ぱ</rt></ruby>ってはいけません。"
+},
+
+{
+    word: "取り除く",
+    ruby: "とりのぞく",
+    english: "Remove",
+    nepali: "हटाउनु",
+    category: "作業動詞",
+    image: "images/word_torinzo.png",
+    meaning: "いらないものや<ruby>汚<rt>よご</rt></ruby>れを<ruby>取<rt>と</rt></ruby>ってなくす。",
+    example: "<ruby>汚<rt>よご</rt></ruby>れを<ruby>取<rt>と</rt></ruby>り<ruby>除<rt>のぞ</rt></ruby>きます。"
+},
+
+{
+    word: "削り取る",
+    ruby: "けずりとる",
+    english: "Scrape off",
+    nepali: "खुर्केर हटाउनु",
+    category: "作業動詞",
+    image: "images/word_kezuritoru.png",
+    meaning: "<ruby>固<rt>かた</rt></ruby>いものなどを<ruby>削<rt>けず</rt></ruby>って<ruby>取<rt>と</rt></ruby>る。",
+    example: "<ruby>固<rt>かた</rt></ruby>い<ruby>汚<rt>よご</rt></ruby>れを<ruby>削<rt>けず</rt></ruby>り<ruby>取<rt>と</rt></ruby>ります。"
+},
+
+{
+    word: "進む",
+    ruby: "すすむ",
+    english: "Proceed / Move forward",
+    nepali: "अगाडि बढ्नु",
+    category: "作業動詞",
+    image: "images/word_susumu.png",
+    meaning: "<ruby>決<rt>き</rt></ruby>めた<ruby>方向<rt>ほうこう</rt></ruby>へ<ruby>動<rt>うご</rt></ruby>く。",
+    example: "<ruby>上<rt>うえ</rt></ruby>から<ruby>下<rt>した</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>みます。"
+},
+
+{
+    word: "重ねる",
+    ruby: "かさねる",
+    english: "Overlap",
+    nepali: "एकमाथि अर्को राख्नु",
+    category: "作業動詞",
+    image: "images/word_kasaneru.png",
+    meaning: "一つのものをもう一つのものに<ruby>重<rt>かさ</rt></ruby>ねる。",
+    example: "スクイジーの<ruby>幅<rt>はば</rt></ruby>を<ruby>重<rt>かさ</rt></ruby>ねます。"
+},
+
+{
+    word: "覆う",
+    ruby: "おおう",
+    english: "Cover",
+    nepali: "छोप्नु",
+    category: "作業動詞",
+    image: "images/word_oou.png",
+    meaning: "上からかぶせる。",
+    example: "センサーをタオルで<ruby>覆<rt>おお</rt></ruby>います。"
+},
+
+{
+    word: "始める",
+    ruby: "はじめる",
+    english: "Start",
+    nepali: "सुरु गर्नु",
+    category: "作業動詞",
+    image: "images/word_hajimeru.png",
+    meaning: "<ruby>作業<rt>さぎょう</rt></ruby>などを<ruby>開始<rt>かいし</rt></ruby>する。",
+    example: "<ruby>清掃<rt>せいそう</rt></ruby>を<ruby>始<rt>はじ</rt></ruby>めます。"
+},
+
+{
+    word: "続ける",
+    ruby: "つづける",
+    english: "Continue",
+    nepali: "जारी राख्नु",
+    category: "作業動詞",
+    image: "images/word_tudukeru.png",
+    meaning: "していることをそのまま<ruby>行<rt>おこな</rt></ruby>う。",
+    example: "<ruby>安全<rt>あんぜん</rt></ruby>を<ruby>確認<rt>かくにん</rt></ruby>して<ruby>作業<rt>さぎょう</rt></ruby>を<ruby>続<rt>つづ</rt></ruby>けます。"
+},
+
+{
+    word: "移動する",
+    ruby: "いどうする",
+    english: "Move",
+    nepali: "सर्नु",
+    category: "作業動詞",
+    image: "images/word_idou.png",
+    meaning: "<ruby>場所<rt>ばしょ</rt></ruby>を<ruby>変<rt>か</rt></ruby>える。",
+    example: "ポリッシャーを<ruby>移動<rt>いどう</rt></ruby>します。"
+},
+
+{
+    word: "分割する",
+    ruby: "ぶんかつする",
+    english: "Divide",
+    nepali: "विभाजन गर्नु",
+    category: "作業動詞",
+    image: "images/word_bunkatsu.png",
+    meaning: "いくつかに<ruby>分<rt>わ</rt></ruby>ける。",
+    example: "<ruby>作業範囲<rt>さぎょうはんい</rt></ruby>を<ruby>分割<rt>ぶんかつ</rt></ruby>します。"
+},
+
+{
+    word: "補充",
+    ruby: "洗剤・薬剤",
+    english: "Restock / Refill",
+    nepali: "थपेर भर्नु",
+    category: "清掃",
+    image: "images/word_hojuu.png",
+    meaning: "<ruby>足<rt>た</rt></ruby>りないものを<ruby>追加<rt>ついか</rt></ruby>すること。",
+    example: "トイレットペーパーを<ruby>補充<rt>ほじゅう</rt></ruby>します。"
+},
+
+{
+    word: "手前",
+    ruby: "てまえ",
+    english: "Near side",
+    nepali: "नजिकको भाग",
+    category: "基本",
+    image: "images/word_temae.png",
+    meaning: "<ruby>自分<rt>じぶん</rt></ruby>に<ruby>近<rt>ちか</rt></ruby>い<ruby>側<rt>がわ</rt></ruby>。",
+    example: "<ruby>奥<rt>おく</rt></ruby>から<ruby>手前<rt>てまえ</rt></ruby>へ<ruby>進<rt>すす</rt></ruby>みます。"
+},
+
+{
+    word: "奥",
+    ruby: "おく",
+    english: "Back / Far side",
+    nepali: "भित्री भाग",
+    category: "基本",
+    image: "images/word_oku.png",
+    meaning: "<ruby>自分<rt>じぶん</rt></ruby>から<ruby>遠<rt>とお</rt></ruby>い<ruby>側<rt>がわ</rt></ruby>。",
+    example: "<ruby>奥<rt>おく</rt></ruby>から<ruby>手前<rt>てまえ</rt></ruby>へ<ruby>清掃<rt>せいそう</rt></ruby>します。"
+},
+
+{
+    word: "四隅",
+    ruby: "よすみ",
+    english: "Four corners",
+    nepali: "चार कुनाहरू",
+    category: "基本",
+    image: "images/word_yosumi.png",
+    meaning: "4つの<ruby>角<rt>かど</rt></ruby>。",
+    example: "ガラスの<ruby>四隅<rt>よすみ</rt></ruby>から<ruby>洗剤<rt>せんざい</rt></ruby>を<ruby>塗布<rt>とふ</rt></ruby>します。"
+},
+
+{
+    word: "下部",
+    ruby: "かぶ",
+    english: "Lower part",
+    nepali: "तल्लो भाग",
+    category: "基本",
+    image: "images/word_kabu.png",
+    meaning: "<ruby>下<rt>した</rt></ruby>の<ruby>部分<rt>ぶぶん</rt></ruby>。",
+    example: "ガラスの<ruby>下部<rt>かぶ</rt></ruby>を<ruby>清掃<rt>せいそう</rt></ruby>します。"
+},
+{
+    word: "点検",
+    ruby: "てんけん",
+    english: "Inspection / Check",
+    nepali: "जाँच",
+    category: "安全",
+    image: "images/word_tenken.png",
+    meaning: "<ruby>道具<rt>どうぐ</rt></ruby>や<ruby>機械<rt>きかい</rt></ruby>に<ruby>問題<rt>もんだい</rt></ruby>がないか<ruby>調<rt>しら</rt></ruby>べること。",
+    example: "<ruby>作業前<rt>さぎょうまえ</rt></ruby>に<ruby>道具<rt>どうぐ</rt></ruby>を<ruby>点検<rt>てんけん</rt></ruby>します。"
+},
+{
+    word: "防ぐ",
+    ruby: "ふせぐ",
+    english: "Prevent",
+    nepali: "रोक्नु",
+    category: "安全",
+    image: "images/word_husegu.png",
+    meaning: "よくないことが<ruby>起<rt>お</rt></ruby>こらないようにすること。",
+    example: "<ruby>事故<rt>じこ</rt></ruby>を<ruby>防<rt>ふせ</rt></ruby>ぐために<ruby>注意表示<rt>ちゅういひょうじ</rt></ruby>を<ruby>置<rt>お</rt></ruby>きます。"
+},
+{
+    word: "配慮する",
+    ruby: "はいりょする",
+    english: "Consider / Take care",
+    nepali: "ध्यान दिनु",
+    category: "作業動詞",
+    image: "images/word_hairyo.png",
+    meaning: "<ruby>人<rt>ひと</rt></ruby>や<ruby>安全<rt>あんぜん</rt></ruby>のことを<ruby>考<rt>かんが</rt></ruby>えて<ruby>行動<rt>こうどう</rt></ruby>すること。",
+    example: "<ruby>利用者<rt>りようしゃ</rt></ruby>の<ruby>安全<rt>あんぜん</rt></ruby>に<ruby>配慮<rt>はいりょ</rt></ruby>します。"
+},
+{
+    word: "維持する",
+    ruby: "いじする",
+    english: "Maintain",
+    nepali: "कायम राख्नु",
+    category: "作業動詞",
+    image: "images/word_iji.png",
+    meaning: "よい<ruby>状態<rt>じょうたい</rt></ruby>をそのまま<ruby>保<rt>たも</rt></ruby>つこと。",
+    example: "<ruby>道具<rt>どうぐ</rt></ruby>の<ruby>性能<rt>せいのう</rt></ruby>を<ruby>維持<rt>いじ</rt></ruby>します。"
+}
+];
+
+
+/* =========================
+   表示処理
+========================= */
+
+const grid = document.getElementById("wordGrid");
+const search = document.getElementById("search");
+const count = document.getElementById("count");
+const empty = document.getElementById("empty");
+const categoriesBox = document.getElementById("categories");
+
+let selectedCategory = "すべて";
+
+const categories = [
+    "すべて",
+    "基本",
+    "清掃場所",
+    "清掃道具",
+    "洗剤・薬剤",
+    "作業動詞",
+    "安全"
+];
+
+function makeRuby(word, ruby) {
+    return `<ruby>${word}<rt>${ruby}</rt></ruby>`;
+}
+
+function renderCategories() {
+    categoriesBox.innerHTML = categories.map(category => `
+        <button
+            class="category-btn ${category === selectedCategory ? "active" : ""}"
+            onclick="selectCategory('${category}')">
+            ${category}
+        </button>
+    `).join("");
+}
+
+function selectCategory(category) {
+    selectedCategory = category;
+    renderCategories();
+    renderWords();
+}
+
+function renderWords() {
+
+    const keyword = search.value.trim().toLowerCase();
+
+    const filtered = words.filter(item => {
+
+        const categoryOK =
+            selectedCategory === "すべて" ||
+            item.category === selectedCategory;
+
+        const searchText =
+            (
+                item.word +
+                item.ruby +
+                item.meaning +
+                item.example +
+                item.category
+            ).toLowerCase();
+
+        const searchOK = searchText.includes(keyword);
+
+        return categoryOK && searchOK;
+    });
+
+    count.textContent = `${filtered.length}語 / 全${words.length}語`;
+
+    if (filtered.length === 0) {
+        grid.innerHTML = "";
+        empty.style.display = "block";
+        return;
+    }
+
+    empty.style.display = "none";
+
+    grid.innerHTML = filtered.map(item => `
+        <article class="word-card">
+
+            <div class="category-label">
+                ${item.category}
+            </div>
+
+            <div class="word">
+                ${makeRuby(item.word, item.ruby)}
+            </div>
+
+            <div class="reading">
+                読み方：${item.ruby}
+            </div>
+            
+            <div class="language english">
+                <span class="language-label">🇬🇧 English</span>
+                ${item.english || ""}
+            </div>
+            <div class="language nepali">
+                <span class="language-label">🇳🇵 नेपाली</span>
+                ${item.nepali || ""}
+            </div>
+
+            <div class="meaning-title">
+                やさしい意味
+            </div>
+
+            <div class="meaning">
+                ${item.meaning}
+            </div>
+
+            <div class="example">
+                <strong>例：</strong>${item.example}
+            </div>
+<div class="word-image-box">
+    ${
+        item.image
+        ? `<img src="${item.image}" alt="${item.word}">`
+        : `<div class="image-placeholder">
+              <span>🖼️</span>
+              画像
+           </div>`
+    }
+</div>
+        </article>
+    `).join("");
+}
+
+search.addEventListener("input", renderWords);
+
+renderCategories();
+renderWords();
+
+</script>
+
+<div class="animated-wave-section" aria-hidden="true">
+<svg class="animated-wave" viewBox="0 0 1200 250" preserveAspectRatio="none">
+<path d="M0,120 C150,40 300,200 450,120 C600,40 750,200 900,120 C1050,40 1200,200 1350,120 L1350,250 L0,250 Z"></path>
+</svg></div></body>
+</html>
