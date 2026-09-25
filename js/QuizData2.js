@@ -61,6 +61,6 @@ const sortQuizData = [
             "images/mop4.png"
         ],
 
-        answer:[2,3,0,1]
+        answer:[2,3,1,0]
     }
 ];
