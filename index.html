@@ -239,8 +239,302 @@ function nextQuestion(){if(sortData.length>0){sortCurrent++;if(sortCurrent>=sort
 function goNextSet(){currentSet++;if(currentSet===2)quizData=currentQuizData.slice(50,100);else if(currentSet===3)quizData=allQuizData.slice(100,150);else if(currentSet===4)quizData=allQuizData.slice(150);else{alert('全セット終了です！');goHome();return}current=0;reviewMode=false;document.getElementById('nextSet').style.display='none';loadQuiz()}
 function goHome(){sortData=[];sortCurrent=0;sortAnswered=false;document.getElementById('quiz').style.display='none';document.getElementById('start').style.display='block';document.getElementById('scoreBoard').style.display='block';current=0;currentSet=1;reviewMode=false;oxTestMode=false;wrongQuestions={1:[],2:[],3:[],4:[],5:[]};document.getElementById('count').textContent='';document.getElementById('choices').innerHTML='';document.getElementById('result').textContent=''}
 function showCorrectEffect(){const marks=['🔶','✨','🤩','⭐','🔷','💚','💜'];for(let i=0;i<25;i++){const e=document.createElement('div');e.className='fall-emoji';e.textContent=marks[Math.floor(Math.random()*marks.length)];e.style.left=Math.random()*innerWidth+'px';e.style.animationDuration=(Math.random()*2+2)+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),4000)}}
-function showQuestionList(){document.getElementById('start').style.display='none';let html='<div class="question-list-page"><h2>📚 問題一覧</h2>';currentQuizData.forEach((q,i)=>{html+=`<div style="margin-bottom:20px;padding:10px;border-bottom:1px solid #ccc"><b>${i+1}.</b><br><br>`+(q.image?`<img src="${q.image}" style="max-width:150px;width:100%"><br><br>`:'')+(q.question||'')+'<br><br><span style="color:red;font-weight:bold">正解：'+q.answer+'</span><br><br>'+(q.choices?q.choices.map(c=>'・'+c).join('<br>'):'')+'</div>'});html+='<button class="floating-close-btn" onclick="closeQuestionList()">← もどる</button></div>';document.querySelector('.container').innerHTML=html}
-function showQuestionListOX(){currentQuizData=quizData2;document.getElementById('start').style.display='none';let html='<div class="question-list-page"><h2>📚 ○×問題一覧</h2>';quizData2.forEach((q,i)=>{html+=`<div style="margin-bottom:20px;padding:10px;border-bottom:1px solid #ccc"><b>${i+1}.</b><br><br>`+(q.image?`<img src="${q.image}" style="max-width:250px;width:100%"><br><br>`:'')+(q.question||'')+'<br><br>'+(q.choices?q.choices.map(c=>'・'+c).join('<br>')+'<br><br>':'')+'<span style="color:red;font-weight:bold">正解：'+q.answer+'</span></div>'});html+='<button class="floating-close-btn" onclick="closeQuestionList()">← もどる</button></div>';document.querySelector('.container').innerHTML=html}
+function showQuestionList(){
+
+    document.getElementById("start").style.display = "none";
+
+    let html = `
+    <div class="question-list-page" style="
+        background:white;
+        max-width:900px;
+        margin:20px auto;
+        padding:20px;
+        border-radius:15px;
+        text-align:left;
+    ">
+
+    <h2>📚 問題一覧</h2>
+    `;
+
+    allQuizData.forEach((q,index)=>{
+
+        html += `
+        <div style="
+            margin-bottom:25px;
+            padding:15px;
+            border-bottom:1px solid #cccccc;
+        ">
+
+            <b style="font-size:18px;">
+                ${index + 1}.
+            </b>
+
+            <br><br>
+        `;
+
+        // 画像
+        if(q.image){
+
+            html += `
+                <img src="${q.image}"
+                     style="
+                        max-width:150px;
+                        width:100%;
+                        height:auto;
+                        display:block;
+                        margin:10px auto;
+                     ">
+                <br>
+            `;
+
+        }
+
+        // 問題文
+        if(q.question){
+
+            html += `
+                <div style="
+                    font-size:18px;
+                    font-weight:bold;
+                    line-height:1.8;
+                    margin-bottom:15px;
+                ">
+                    ${q.question}
+                </div>
+            `;
+
+        }
+
+        // 選択肢
+        if(q.choices){
+
+            html += `
+                <div style="
+                    line-height:2;
+                    margin-bottom:15px;
+                ">
+                    ${q.choices.map(c => `・${c}`).join("<br>")}
+                </div>
+            `;
+
+        }
+
+        // 答えを隠す
+        html += `
+            <button
+                onclick="showAnswer(${index})"
+                id="answerButton-${index}"
+                style="
+                    padding:8px 15px;
+                    font-size:14px;
+                "
+            >
+                🔍 答えを見る
+            </button>
+
+            <div
+                id="answer-${index}"
+                style="
+                    display:none;
+                    margin-top:10px;
+                    color:red;
+                    font-weight:bold;
+                    font-size:17px;
+                "
+            >
+                正解：${q.answer}
+            </div>
+
+        </div>
+        `;
+    });
+
+    html += `
+        <button
+            class="floating-close-btn"
+            onclick="closeQuestionList()"
+        >
+            ← もどる
+        </button>
+
+    </div>
+    `;
+
+    document.querySelector(".container").innerHTML = html;
+}
+
+
+// 答えを表示・非表示
+function showAnswer(index){
+
+    const answer =
+        document.getElementById("answer-" + index);
+
+    const button =
+        document.getElementById("answerButton-" + index);
+
+    if(answer.style.display === "none"){
+
+        answer.style.display = "block";
+
+        button.innerHTML = "🙈 答えを隠す";
+
+    }else{
+
+        answer.style.display = "none";
+
+        button.innerHTML = "🔍 答えを見る";
+
+    }
+}
+
+
+function closeQuestionList(){
+
+    location.reload();
+
+}function showQuestionListOX(){
+
+    currentQuizData = quizData2;
+
+    document.getElementById('start').style.display = 'none';
+
+    let html = `
+        <div class="question-list-page">
+
+            <h2>📚 ○×問題一覧</h2>
+    `;
+
+    quizData2.forEach((q, i) => {
+
+        html += `
+            <div style="
+                margin-bottom:20px;
+                padding:15px;
+                border-bottom:1px solid #ccc;
+            ">
+
+                <b style="font-size:18px;">
+                    ${i + 1}.
+                </b>
+
+                <br><br>
+        `;
+
+        // 画像
+        if(q.image){
+
+            html += `
+                <img src="${q.image}"
+                     style="
+                        max-width:250px;
+                        width:100%;
+                        height:auto;
+                        display:block;
+                        margin:10px auto;
+                     ">
+                <br>
+            `;
+        }
+
+        // 問題
+        html += `
+            <div style="
+                font-size:18px;
+                font-weight:bold;
+                line-height:1.8;
+                margin-bottom:15px;
+            ">
+                ${q.question || ''}
+            </div>
+        `;
+
+        // 選択肢
+        if(q.choices){
+
+            html += `
+                <div style="
+                    line-height:2;
+                    margin-bottom:15px;
+                ">
+                    ${q.choices.map(c => `・${c}`).join('<br>')}
+                </div>
+            `;
+        }
+
+        // 答えを見るボタン
+        html += `
+            <button
+                onclick="showOXAnswer(${i})"
+                id="oxAnswerButton-${i}"
+                style="
+                    padding:8px 15px;
+                    font-size:14px;
+                    width:auto;
+                    min-height:auto;
+                "
+            >
+                🔍 答えを見る
+            </button>
+
+            <div
+                id="oxAnswer-${i}"
+                style="
+                    display:none;
+                    margin-top:10px;
+                    padding:10px;
+                    background:#fff3cd;
+                    border-radius:8px;
+                    color:red;
+                    font-weight:bold;
+                    font-size:17px;
+                "
+            >
+                正解：${q.answer}
+            </div>
+
+            </div>
+        `;
+    });
+
+    html += `
+        <button
+            class="floating-close-btn"
+            onclick="closeQuestionList()"
+        >
+            ← もどる
+        </button>
+
+        </div>
+    `;
+
+    document.querySelector('.container').innerHTML = html;
+}
+
+
+// 2択問題の答えを表示・非表示
+function showOXAnswer(index){
+
+    const answer =
+        document.getElementById('oxAnswer-' + index);
+
+    const button =
+        document.getElementById('oxAnswerButton-' + index);
+
+    if(answer.style.display === 'none'){
+
+        answer.style.display = 'block';
+
+        button.innerHTML = '🙈 答えを隠す';
+
+    }else{
+
+        answer.style.display = 'none';
+
+        button.innerHTML = '🔍 答えを見る';
+
+    }
+}
 function closeQuestionList(){location.reload()}
 document.addEventListener('DOMContentLoaded',()=>{const s=document.querySelector('.bubble-background');setInterval(()=>{const b=document.createElement('span');b.className='bubble';const n=Math.random()*41+10;b.style.width=n+'px';b.style.height=n+'px';b.style.left=Math.random()*innerWidth+'px';s.appendChild(b);setTimeout(()=>b.remove(),8000)},1200)});
 </script>
