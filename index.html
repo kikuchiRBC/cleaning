@@ -115,7 +115,126 @@ function makeChoices(q){let c=[q.answer];while(c.length<4){let r=imageQuizData[M
 function startQuiz(set){score=0;miss=0;currentSet=set;wrongQuestions[currentSet]=wrongQuestions[currentSet]||[];document.getElementById('score').textContent=0;document.getElementById('miss').textContent=0;document.getElementById('start').style.display='none';document.getElementById('quiz').style.display='block';document.getElementById('scoreBoard').style.display='block';quizData=[...currentQuizData];for(let i=quizData.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[quizData[i],quizData[j]]=[quizData[j],quizData[i]]}if(set===5)quizData=quizData.slice(0,30);current=0;reviewMode=false;loadQuiz()}
 function startQuizData2(){currentQuizData=quizData2;score=0;miss=0;quizData=[...quizData2];current=0;oxTestMode=false;document.getElementById('score').textContent=0;document.getElementById('miss').textContent=0;document.getElementById('start').style.display='none';document.getElementById('quiz').style.display='block';document.getElementById('scoreBoard').style.display='block';loadQuiz()}
 function startQuizData2Test(){startQuizData2();for(let i=quizData.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[quizData[i],quizData[j]]=[quizData[j],quizData[i]]}quizData=quizData.slice(0,30);oxTestMode=true;current=0;loadQuiz()}
-function loadQuiz(){const q=quizData[current];if(!q)return;document.getElementById('result').textContent='';document.getElementById('next').style.display='none';document.getElementById('toolImage').style.display=q.image?'block':'none';if(q.image)document.getElementById('toolImage').src=q.image;document.getElementById('questionText').innerHTML=q.question||'';document.getElementById('count').textContent=(current+1)+' / '+quizData.length;const area=document.getElementById('choices');area.innerHTML='';(q.choices||makeChoices(q)).forEach(choice=>{const b=document.createElement('button');b.innerHTML=choice;b.onclick=()=>{if(b.disabled)return;if(choice===q.answer){score++;document.getElementById('result').textContent='🎉 正解！';showCorrectEffect()}else{miss++;document.getElementById('result').innerHTML='× 不正解！ 正解は「'+q.answer+'」';wrongQuestions[currentSet]=wrongQuestions[currentSet]||[];if(!wrongQuestions[currentSet].includes(q))wrongQuestions[currentSet].push(q)}document.getElementById('score').textContent=score;document.getElementById('miss').textContent=miss;document.querySelectorAll('#choices button').forEach(x=>x.disabled=true);document.getElementById('next').style.display='inline-block'};area.appendChild(b)})}
+function loadQuiz(){
+
+    const q = quizData[current];
+
+    if(!q) return;
+
+    // 表示をリセット
+    document.getElementById('result').textContent = '';
+    document.getElementById('next').style.display = 'none';
+
+    // 画像
+    const toolImage = document.getElementById('toolImage');
+
+    if(q.image){
+        toolImage.style.display = 'block';
+        toolImage.src = q.image;
+    }else{
+        toolImage.style.display = 'none';
+        toolImage.removeAttribute('src');
+    }
+
+    // 問題
+    document.getElementById('questionText').innerHTML =
+        q.question || '';
+
+    // 問題番号
+    document.getElementById('count').textContent =
+        (current + 1) + ' / ' + quizData.length;
+
+    // 選択肢
+    const area = document.getElementById('choices');
+    area.innerHTML = '';
+
+    const choices = q.choices || makeChoices(q);
+
+    choices.forEach(choice => {
+
+        const b = document.createElement('button');
+
+        b.innerHTML = choice;
+
+b.onclick = function(){
+
+    if(b.disabled) return;
+
+    // 選んだ選択肢
+    const selectedLetter = String(choice).trim().charAt(0).toUpperCase();
+
+    // 正解
+    const correctLetter = String(q.answer).trim().charAt(0).toUpperCase();
+
+    const isCorrect = selectedLetter === correctLetter;
+
+    if(isCorrect){
+
+        score++;
+
+        document.getElementById('result').innerHTML =
+            '🎉 正解！';
+
+        showCorrectEffect();
+
+    }else{
+
+        miss++;
+
+        // 正解の選択肢を探す
+        let correctDisplay = q.answer;
+
+        if(["A","B","C","D"].includes(correctLetter)){
+
+            const correctButton =
+                [...document.querySelectorAll('#choices button')]
+                .find(function(btn){
+
+                    return btn.textContent
+                        .trim()
+                        .charAt(0)
+                        .toUpperCase()
+                        === correctLetter;
+
+                });
+
+            if(correctButton){
+                correctDisplay = correctButton.textContent.trim();
+            }
+        }
+
+        document.getElementById('result').innerHTML =
+            '❌ 不正解！<br>正解は「' +
+            correctDisplay +
+            '」';
+
+        wrongQuestions[currentSet] =
+            wrongQuestions[currentSet] || [];
+
+        if(!wrongQuestions[currentSet].includes(q)){
+            wrongQuestions[currentSet].push(q);
+        }
+    }
+
+    document.getElementById('score').textContent = score;
+    document.getElementById('miss').textContent = miss;
+
+    // 全ボタンを押せなくする
+    document
+        .querySelectorAll('#choices button')
+        .forEach(function(button){
+            button.disabled = true;
+        });
+
+    // 次へ
+    document.getElementById('next').style.display =
+        'inline-block';
+};
+        area.appendChild(b);
+
+    });
+
+}
 function nextQuestion(){if(sortData.length>0){sortCurrent++;if(sortCurrent>=sortData.length){finishSortQuiz();return}loadSortQuiz();return}current++;if(current>=quizData.length){if(reviewMode){reviewMode=false;document.getElementById('choices').innerHTML='';document.getElementById('result').textContent='復習終了！';document.getElementById('next').style.display='none';document.getElementById('nextSet').style.display='inline-block';return}if(oxTestMode){document.getElementById('choices').innerHTML='';document.getElementById('result').innerHTML='🏆 2択クイズ終了！<br>'+quizData.length+'点中 '+score+' 点でした。';document.getElementById('next').style.display='none';oxTestMode=false;return}if(currentSet===5){document.getElementById('choices').innerHTML='';document.getElementById('result').innerHTML='🏆 テスト30問終了！<br>30点中 '+score+' 点でした。';document.getElementById('next').style.display='none';return}if(wrongQuestions[currentSet]?.length){quizData=wrongQuestions[currentSet];wrongQuestions[currentSet]=[];current=0;reviewMode=true;loadQuiz();return}document.getElementById('choices').innerHTML='';document.getElementById('result').textContent='セット'+currentSet+'終了！';document.getElementById('next').style.display='none';document.getElementById('nextSet').style.display='inline-block';return}loadQuiz()}
 function goNextSet(){currentSet++;if(currentSet===2)quizData=currentQuizData.slice(50,100);else if(currentSet===3)quizData=allQuizData.slice(100,150);else if(currentSet===4)quizData=allQuizData.slice(150);else{alert('全セット終了です！');goHome();return}current=0;reviewMode=false;document.getElementById('nextSet').style.display='none';loadQuiz()}
 function goHome(){sortData=[];sortCurrent=0;sortAnswered=false;document.getElementById('quiz').style.display='none';document.getElementById('start').style.display='block';document.getElementById('scoreBoard').style.display='block';current=0;currentSet=1;reviewMode=false;oxTestMode=false;wrongQuestions={1:[],2:[],3:[],4:[],5:[]};document.getElementById('count').textContent='';document.getElementById('choices').innerHTML='';document.getElementById('result').textContent=''}
